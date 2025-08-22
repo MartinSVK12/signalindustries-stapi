@@ -1,0 +1,16 @@
+{
+  "values": [
+    "signalindustries:prototype_machine_block",
+    "signalindustries:basic_machine_block",
+    "signalindustries:reinforced_machine_block",
+    "signalindustries:awakened_machine_block",
+    "signalindustries:raw_crystal_block",
+    "signalindustries:empty_crystal_block",
+    "signalindustries:dilithium_block",
+    "signalindustries:awakened_crystal_block",
+    "signalindustries:cobblestone_bricks",
+    "signalindustries:crystal_alloy_bricks",
+    "signalindustries:reinforced_alloy_bricks",
+    "signalindustries:prototype_fluid_tank"
+  ]
+}

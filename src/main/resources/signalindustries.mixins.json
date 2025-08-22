@@ -4,10 +4,15 @@
   "package": "sunsetsatellite.signalindustries.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AMITooltipSystemMixin",
+    "BucketItemMixin",
+    "LiquidBlockMixin",
+    "TooltipMixin"
   ],
   "server": [
   ],
   "client": [
+    "InteractionManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

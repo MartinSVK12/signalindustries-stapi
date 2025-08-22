@@ -1,0 +1,161 @@
+fluid.@.energy.name=Signaling Energy
+fluid.@.burntEnergy.name=Burnt Signaling Energy
+fluid.@.worldResin.name=World Resin
+
+tile.@.prototype.machine.name=Prototype Machine Core
+tile.@.prototype.machine.desc=Key component for Prototype-tier machines.
+tile.@.basic.machine.name=Basic Machine Core
+tile.@.basic.machine.desc=Key component for Basic-tier machines.
+tile.@.reinforced.machine.name=Reinforced Machine Core
+tile.@.reinforced.machine.desc=Key component for Reinforced-tier machines.
+tile.@.awakened.machine.name=Awakened Machine Core
+tile.@.awakened.machine.desc=Key component for Awakened-tier machines.
+
+tile.@.signalumEnergy.still.name=Signaling Energy
+tile.@.signalumEnergy.still.desc=Mysterious substance with magically energetic properties. Used to power a new kind of technology.
+tile.@.burntSignalum.still.name=Burnt Signaling Energy
+tile.@.burntSignalum.still.desc=<Signaling Energy> burnt out in an unstable reaction. But there's still beauty in the ashes, can you find it?
+tile.@.worldResin.still.name=World Resin
+tile.@.worldResin.still.desc=The primordial nectar of existence, crystallizes into <Dimensional Shards> under the right circumstances.
+tile.@.signalumEnergy.flowing.name=Signaling Energy
+tile.@.signalumEnergy.flowing.desc=Mysterious substance with magically energetic properties. Used to power a new kind of technology.
+tile.@.burntSignalum.flowing.name=Burnt Signaling Energy
+tile.@.burntSignalum.flowing.desc=Energy that has failed to overcome its limits. But there's still beauty in the ashes, can you find it?
+tile.@.worldResin.flowing.name=World Resin
+tile.@.worldResin.flowing.desc=The primordial nectar of existence, crystallizes into <Dimensional Shards> under the right circumstances.
+
+tile.@.dilithiumBlock.name=Block of Dilithium
+tile.@.dilithiumBlock.desc=A solid block of Dilithium.
+tile.@.emptyCrystalBlock.name=Block of Crystal Alloy
+tile.@.emptyCrystalBlock.desc=A solid block of Crystal Alloy.
+tile.@.rawCrystalBlock.name=Block of Raw Signalite Crystals
+tile.@.rawCrystalBlock.desc=A solid block of Raw Signalite Crystals.
+tile.@.awakenedSignalumCrystalBlock.name=Block of Awakened Signalite Crystals
+tile.@.awakenedSignalumCrystalBlock.desc=A meter cubed of unreal energy, you should be glad those crystals contain it all.
+
+tile.@.prototype.bricks.name=Cobblestone Bricks
+tile.@.prototype.bricks.desc=Stacked bricks of cobblestone.
+tile.@.basic.bricks.name=Crystal Alloy Bricks
+tile.@.basic.bricks.desc=Stacked bricks of Crystal Alloy ingots.
+tile.@.reinforced.bricks.name=Reinforced Crystal Alloy Bricks
+tile.@.reinforced.bricks.desc=Stacked bricks of Reinforced Crystal Alloy ingots.
+tile.@.awakened.bricks.name=Awakened Alloy Bricks
+tile.@.awakened.bricks.desc=Stacked bricks of Awakened Alloy ingots.
+
+tile.@.prototype.fluidTank.name=Prototype Fluid Tank
+tile.@.prototype.fluidTank.desc=Tank for storing various fluids. Unsuitable for <Signaling Energy>.
+
+tile.@.prototype.energyCell.name=Prototype Energy Cell
+tile.@.prototype.energyCell.desc=Buffer for storing <Signaling Energy>.
+
+item.@.rawSignalumCrystal.name=Raw Signalite Crystal
+item.@.rawSignalumCrystal.desc=The beginning of it all. Crude shards infused with a new kind of energy.
+item.@.signalumCrystal.name=Signalite Crystal
+item.@.signalumCrystal.desc=A pure crystal with <Signaling Energy> infused in it. Shines with a bright red glow.
+item.@.signalumCrystal.battery.name=Signalite Crystal (Battery)
+item.@.signalumCrystal.battery.desc=A modified <S. Crystal> that can repeatedly be infused and drained of <S. Energy>.
+item.@.infiniteSignalumCrystal.name=Infinite Signalite Crystal
+item.@.infiniteSignalumCrystal.desc=A source of infinite and eternal power. Contains infinite <Signaling Energy>! Creative mode only.
+item.@.signalumCrystalEmpty.name=Empty Signalite Crystal
+item.@.signalumCrystalEmpty.desc=Unpowered <Signalite Crystal>. Still useful for its physical properties.
+item.@.awakenedSignalumCrystal.name=Awakened Signalite Crystal
+item.@.awakenedSignalumCrystal.desc=The pinnacle of Signalite technology. The power of the first star reborn. Shine!
+item.@.awakenedSignalumFragment.name=Awakened Signalite Fragment
+item.@.awakenedSignalumFragment.desc=Let me reach for the stars now, they're so close to me~
+
+item.@.cobblestonePlate.name=Cobblestone Plate
+item.@.cobblestonePlate.desc=A plate made out of cobblestone.
+item.@.stonePlate.name=Stone Plate
+item.@.stonePlate.desc=A plate made out of stone.
+item.@.crystalAlloyPlate.name=Crystal Alloy Plate
+item.@.crystalAlloyPlate.desc=A plate made out of <Crystal Alloy>.
+item.@.reinforcedCrystalAlloyPlate.name=Reinforced Crystal Alloy Plate
+item.@.reinforcedCrystalAlloyPlate.desc=A plate made out of <Reinforced Crystal Alloy>.
+item.@.saturatedSignalumAlloyPlate.name=Saturated Signalite Alloy Plate
+item.@.saturatedSignalumAlloyPlate.desc=A plate made out of <Saturated Signalite Alloy>.
+item.@.steelPlate.name=Steel Plate
+item.@.steelPlate.desc=A plate made out of steel.
+item.@.dilithiumPlate.name=Dilithium Plate
+item.@.dilithiumPlate.desc=A plate made out of <Dilithium Shards>.
+item.@.awakenedAlloyPlate.name=Awakened Alloy Plate
+item.@.awakenedAlloyPlate.desc=A plate made out of <Awakened Alloy>.
+item.@.voidAlloyPlate.name=Void Alloy Plate
+item.@.voidAlloyPlate.desc=A plate made out of <Void Alloy>.
+item.@.signalumAlloyMesh.name=Signalite Alloy Mesh
+item.@.signalumAlloyMesh.desc=A thin plate of <Signalite Alloy> with a lot of small holes in it.
+
+item.@.diamondCuttingGear.name=Diamond Cutting Gear
+item.@.diamondCuttingGear.desc=Sharp! Used in a specific machine for cutting stuff.
+item.@.signalumCuttingGear.name=Signalite Cutting Gear
+item.@.signalumCuttingGear.desc=Even sharper gear for cutting tougher stuff.
+
+item.@.crystalAlloyIngot.name=Crystal Alloy Ingot
+item.@.crystalAlloyIngot.desc=An alloy of steel and <Signalite Crystal Dust>.
+item.@.saturatedSignalumAlloyIngot.name=Saturated Signalite Alloy Ingot
+item.@.saturatedSignalumAlloyIngot.desc=The result of infusing <Crystal Alloy> with <S. Energy>.
+item.@.reinforcedCrystalAlloyIngot.name=Reinforced Crystal Alloy Ingot
+item.@.reinforcedCrystalAlloyIngot.desc=A better, stronger alloy made out of <Glowing Obsidian> and <Crystal Alloy>.
+item.@.voidAlloyIngot.name=Void Alloy Ingot
+item.@.voidAlloyIngot.desc=Woven <Fabric of Reality> combined with <R. C. Alloy>.
+item.@.awakenedAlloyIngot.name=Awakened Alloy Ingot
+item.@.awakenedAlloyIngot.desc=The perfect alloy, shines with radiant glow.
+
+item.@.dimensionalShard.name=Dimensional Shard
+item.@.dimensionalShard.desc=You can see a reflection of a different world on each side.
+item.@.dilithiumShard.name=Dilithium Shard
+item.@.dilithiumShard.desc=An extraterrestrial mineral used in machines to locally manipulate time.
+
+item.@.crystalChip.name=Crystal Chip
+item.@.crystalChip.desc=A crude chip that powers a <Basic Energy Core>.
+item.@.pureCrystalChip.name=Pure Crystal Chip
+item.@.pureCrystalChip.desc=A better chip used in the <Reinforced Energy Core>.
+item.@.dilithiumChip.name=Dilithium Chip
+item.@.dilithiumChip.desc=The main part of the <Dilithium Control Core>.
+item.@.dimensionalChip.name=Dimensional Chip
+item.@.dimensionalChip.desc=The main part of the <Warp Manipulator Circuit>.
+
+item.@.romChip.blank.name=Blank ROM Chip
+item.@.romChip.blank.desc=Unprogrammed ROM chip.
+item.@.romChip.position.name=Position Memory Chip
+item.@.romChip.position.desc=Stores an XYZ location in the current world, unlike the <Warp Orb> it can only be used to logically link 2 points together.
+item.@.romChip.precision.name=Precision Control Chip
+item.@.romChip.precision.desc=Allows <Automatic Miners> to execute finer control over their drills, collecting materials with silk touch.
+item.@.romChip.unlimited.name=Unlimited Power Chip
+item.@.romChip.unlimited.desc=Allows some machines to ignore their requirements. Creative mode only.
+
+item.@.condensedMilkCan.name=Condensed Milk Can
+item.@.condensedMilkCan.desc=Thick and sweet.
+item.@.bucketCaramel.name=Bucket of Caramel
+item.@.bucketCaramel.desc=A bucket full of caramelized sugar.
+item.@.caramelPlate.name=Caramel Plate
+item.@.caramelPlate.desc=A plate made out of... caramel?
+item.@.krowka.name=Krowka
+item.@.krowka.desc=Sweet caramel candy.
+
+item.@.realityString.name=String of Reality
+item.@.realityString.desc=An individual thread of the <Fabric of Reality>.
+item.@.monsterShard.name=Monster Shard
+item.@.monsterShard.desc=Horrendous and corrupted.
+item.@.evilEye.name=Evil Eye
+item.@.evilEye.desc=A deep evil sealed within, there's probably a machine to could unleash it.
+item.@.infernalEye.name=Infernal Eye
+item.@.infernalEye.desc=But they were, all of them, deceived for an even greater evil was made.
+item.@.infernalFragment.name=Infernal Fragment
+item.@.infernalFragment.desc=When the eclipse reaches totality, the monsters come out of hiding.
+item.@.clearKey.name=Clear Key
+item.@.clearKey.desc=Both a physical and metaphorical key to more power.
+item.@.saturatedKey.name=Saturated Key
+item.@.saturatedKey.desc=Can open many "doors", but only you can choose which will be actually opened.
+
+item.@.coalDust.name=Coal Dust
+item.@.coalDust.desc=Ground up coal.
+item.@.ironDust.name=Iron Dust
+item.@.ironDust.desc=Ground up iron.
+item.@.goldDust.name=Gold Dust
+item.@.goldDust.desc=Ground up gold.
+item.@.signalumCrystalDust.name=Signalite Crystal Dust
+item.@.signalumCrystalDust.desc=Ground up empty signalite crystals.
+item.@.saturatedSignalumCrystalDust.name=Saturated Signalite Crystal Dust
+item.@.saturatedSignalumCrystalDust.desc=Ground up signalite crystals that contained energy.
+item.@.awakenedSignalumCrystalDust.name=Awakened Signalite Crystal Dust
+item.@.awakenedSignalumCrystalDust.desc=Ground up awakened signalite crystals.

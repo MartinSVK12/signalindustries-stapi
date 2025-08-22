@@ -3,28 +3,40 @@
   "id": "signalindustries",
   "version": "${version}",
 
-  "name": "Signal Industries (StAPI Edition)",
+  "name": "Signal Industries",
   "description": "A stylized technomagical mod centered around a special power source, cool gadgets (and StAPI) included.",
   "authors": [
     "sunsetsatellite"
   ],
 
   "contact": {
-    "sources": "https://github.com/MartinSVK12/signalindustries",
-    "issues": "https://github.com/MartinSVK12/signalindustries/issues"
+    "sources": "https://github.com/MartinSVK12/signalindustries-stapi",
+    "issues": "https://github.com/MartinSVK12/signalindustries-stapi/issues"
   },
 
   "license": "GNU LGPLv3",
   "icon": "assets/signalindustries/icon128.png",
 
+  "accessWidener": "signalindustries.accesswidener",
+
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "sunsetsatellite.signalindustries.SignalIndustries"
+      "sunsetsatellite.signalindustries.SignalIndustries",
+      "sunsetsatellite.signalindustries.data.SIItems",
+      "sunsetsatellite.signalindustries.data.SIBlocks",
+      "sunsetsatellite.signalindustries.data.SITextures",
+      "sunsetsatellite.signalindustries.data.SIFluids"
     ],
     "stationapi:event_bus_client": [
+      "sunsetsatellite.signalindustries.SignalIndustriesClient",
+      "sunsetsatellite.signalindustries.data.SIScreens"
     ],
     "stationapi:event_bus_server": [
+      "sunsetsatellite.signalindustries.SignalIndustriesServer"
+    ],
+    "alwaysmoreitems:plugin": [
+      "sunsetsatellite.signalindustries.api.impl.ami.AMIPlugin"
     ]
   },
   "mixins": [
