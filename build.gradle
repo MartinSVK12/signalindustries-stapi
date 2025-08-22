@@ -1,7 +1,7 @@
 
 plugins {
     id 'maven-publish'
-    id 'fabric-loom' version '1.10.5'
+    id 'fabric-loom' version '1.12.0-alpha.9'
     id 'babric-loom-extension' version '1.10.2'
     id "com.modrinth.minotaur" version "2.+"
 }
@@ -20,10 +20,25 @@ java {
 }
 
 loom {
-    //accessWidenerPath = file("src/main/resources/template.accesswidener")
+    accessWidenerPath = file("src/main/resources/signalindustries.accesswidener")
+    mixin {
+        useLegacyMixinAp = false
+    }
+}
+
+allprojects {
+    apply plugin: 'maven-publish'
+    apply plugin: 'fabric-loom'
+    apply plugin: 'babric-loom-extension'
 }
 
 repositories {
+    // NyaRepo
+    maven {
+        name = "nyarepo"
+        url = "https://maven.fildand.cz/releases"
+    }
+
     // Used for Babric Loom Extensions
     maven {
         name = 'Babric'
@@ -40,12 +55,6 @@ repositories {
     maven {
         name = 'Glass Snapshots'
         url = 'https://maven.glass-launcher.net/snapshots'
-    }
-
-    // NyaRepo
-    maven {
-        name = "nyarepo"
-        url = "https://maven.fildand.cz/releases"
     }
 
     // Used for a StationAPI dependency.
@@ -94,13 +103,26 @@ dependencies {
 
     modImplementation("net.modificationstation:StationAPI:${project.stapi_version}") {
         exclude group: "babric", module: "fabric-loader"
+        exclude group: "net.glasslauncher.mods", module: "GlassConfigAPI"
     }
 
-    modImplementation("sunsetsatellite:catalyst-core:1.0.0+stapi")
-    modImplementation("sunsetsatellite:catalyst-multiblocks:1.0.0+stapi")
-    modImplementation("sunsetsatellite:catalyst-multipart:1.0.0+stapi")
+    implementation(project(path: ":core", configuration: "namedElements"))
+    implementation(project(path: ":multiblocks", configuration: "namedElements"))
+    implementation(project(path: ":multipart", configuration: "namedElements"))
 
-    modImplementation("net.danygames2014.NyaLib.submodule:nyalib-base:0.15.0-SNAPSHOT-1.0.0")
+    /*modImplementation("sunsetsatellite:catalyst-core:1.0.0+stapi")
+    modImplementation("sunsetsatellite:catalyst-multiblocks:1.0.0+stapi")
+    modImplementation("sunsetsatellite:catalyst-multipart:1.0.0+stapi")*/
+
+    /*modImplementation("net.danygames2014.NyaLib.submodule:nyalib-base:0.15.0-SNAPSHOT-1.0.0") {
+        transitive false
+    }*/
+
+    modImplementation("net.danygames2014:WhatsThis:${project.whatsthis_version}") {
+        transitive false
+    }
+
+    modImplementation("net.danygames2014:NyaLib:${project.nyalib_version}")
 
     modImplementation("net.glasslauncher.mods:ModMenu:${project.modmenu_version}") {
         transitive false

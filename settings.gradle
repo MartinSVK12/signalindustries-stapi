@@ -12,3 +12,18 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
+
+include(":catalyst")
+include(":core")
+include(":multiblocks")
+include(":multipart")
+//include(":nyalib")
+//include(":base")
+
+project(":catalyst").projectDir = file("${rootProject.projectDir}/../catalyst")
+project(":core").projectDir = file("${rootProject.projectDir}/../catalyst/core")
+project(":multiblocks").projectDir = file("${rootProject.projectDir}/../catalyst/multiblocks")
+project(":multipart").projectDir = file("${rootProject.projectDir}/../catalyst/multipart")
+//project(":nyalib").projectDir = file("${rootProject.projectDir}/../nyalib")
+//project(":base").projectDir = file("${rootProject.projectDir}/../nyalib/nyalib-base")
