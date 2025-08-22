@@ -6,13 +6,15 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.gui.screen.container.GuiHelper;
 import net.modificationstation.stationapi.api.util.Identifier;
 import org.jetbrains.annotations.NotNull;
+import sunsetsatellite.catalyst.core.util.io.InventoryWrapper;
 import sunsetsatellite.catalyst.core.util.model.RotatableBlockWithEntity;
 import sunsetsatellite.signalindustries.interfaces.Tiered;
+import sunsetsatellite.signalindustries.util.ActiveForm;
 import sunsetsatellite.signalindustries.util.Tier;
 
 import java.lang.reflect.InvocationTargetException;
@@ -64,5 +66,25 @@ public class TieredMachineBlock extends RotatableBlockWithEntity implements Tier
             throw new RuntimeException(e);
         }
         return true;
+    }
+
+    @Override
+    public void onBreak(World world, int x, int y, int z) {
+        BlockEntity blockEntity = world.getBlockEntity(x, y, z);
+        if(blockEntity instanceof Inventory inventory) {
+            InventoryWrapper wrapper = new InventoryWrapper(inventory);
+            wrapper.ejectAll(world, x, y, z);
+        }
+        super.onBreak(world, x, y, z);
+    }
+
+    @Override
+    public boolean renderLayer(BlockView view, int x, int y, int z, int meta, int layer) {
+        BlockEntity blockEntity = view.getBlockEntity(x, y, z);
+        if(blockEntity instanceof ActiveForm te) {
+            if(layer == 1 || layer == 2) return te.isActive();
+            else return true;
+        }
+        return layer == 0;
     }
 }

@@ -88,8 +88,6 @@ public class SIItems {
     public static Item caramelPlate;
     public static Item krowka;
 
-
-
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
         rawSignalumCrystal = simpleItem("raw_signalite_crystal", "rawSignalumCrystal", "raw_signalum_crystal");

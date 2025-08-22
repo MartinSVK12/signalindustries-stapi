@@ -1,4 +1,4 @@
-package sunsetsatellite.signalindustries.recipes;
+package sunsetsatellite.signalindustries.recipes.base;
 
 import sunsetsatellite.catalyst.core.util.recipe.RecipeNamespace;
 

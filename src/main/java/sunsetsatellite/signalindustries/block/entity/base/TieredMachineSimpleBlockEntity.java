@@ -5,7 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import sunsetsatellite.signalindustries.SignalIndustries;
-import sunsetsatellite.signalindustries.recipes.RecipeGroupSI;
+import sunsetsatellite.signalindustries.recipes.base.RecipeGroupSI;
 import sunsetsatellite.signalindustries.recipes.entry.RecipeEntryMachine;
 import sunsetsatellite.signalindustries.recipes.entry.RecipeEntryMachineFluid;
 import sunsetsatellite.signalindustries.recipes.entry.RecipeEntrySI;
@@ -38,6 +38,7 @@ public abstract class TieredMachineSimpleBlockEntity extends TieredMachineBaseBl
 
     public void work(){
         if(world.isRemote) return;
+        world.setBlockDirty(x,y,z);
         boolean update = false;
         if(fuelBurnTicks > 0){
             fuelBurnTicks--;

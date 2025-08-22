@@ -1,4 +1,4 @@
-package sunsetsatellite.signalindustries.recipes;
+package sunsetsatellite.signalindustries.recipes.base;
 
 import net.danygames2014.nyalib.fluid.FluidStack;
 import net.minecraft.item.ItemStack;
@@ -8,9 +8,11 @@ import sunsetsatellite.signalindustries.util.RecipeSymbol;
 import sunsetsatellite.signalindustries.util.RecipeProperties;
 import sunsetsatellite.signalindustries.util.Tier;
 
+import java.util.List;
+
 public class RecipeGroupSI<T extends RecipeEntrySI<?,?, RecipeProperties>> extends RecipeGroup<T> {
-    public RecipeGroupSI(ItemStack machine) {
-        super(machine);
+    public RecipeGroupSI(List<ItemStack> machines) {
+        super(machines);
     }
 
     public FluidStack findFluidOutput(ItemStack stack){

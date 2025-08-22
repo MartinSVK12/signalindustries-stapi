@@ -26,7 +26,8 @@
       "sunsetsatellite.signalindustries.data.SIItems",
       "sunsetsatellite.signalindustries.data.SIBlocks",
       "sunsetsatellite.signalindustries.data.SITextures",
-      "sunsetsatellite.signalindustries.data.SIFluids"
+      "sunsetsatellite.signalindustries.data.SIFluids",
+      "sunsetsatellite.signalindustries.data.SIRecipes"
     ],
     "stationapi:event_bus_client": [
       "sunsetsatellite.signalindustries.SignalIndustriesClient",

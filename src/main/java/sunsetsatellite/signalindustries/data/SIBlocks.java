@@ -4,17 +4,21 @@ import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.sound.BlockSoundGroup;
+import net.modificationstation.stationapi.api.client.event.block.entity.BlockEntityRendererRegisterEvent;
 import net.modificationstation.stationapi.api.event.block.entity.BlockEntityRegisterEvent;
 import net.modificationstation.stationapi.api.event.registry.BlockItemRegistryEvent;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 import net.modificationstation.stationapi.api.template.block.TemplateFlowingLiquidBlock;
 import net.modificationstation.stationapi.api.template.block.TemplateStillLiquidBlock;
+import sunsetsatellite.signalindustries.block.CrusherBlock;
 import sunsetsatellite.signalindustries.block.EnergyCellBlock;
 import sunsetsatellite.signalindustries.block.FluidTankBlock;
 import sunsetsatellite.signalindustries.block.base.SIBlock;
 import sunsetsatellite.signalindustries.block.base.TieredBlock;
+import sunsetsatellite.signalindustries.block.entity.CrusherBlockEntity;
 import sunsetsatellite.signalindustries.block.entity.EnergyCellBlockEntity;
 import sunsetsatellite.signalindustries.block.entity.FluidTankBlockEntity;
+import sunsetsatellite.signalindustries.render.RenderFluidInBlock;
 import sunsetsatellite.signalindustries.util.MachineTextures;
 import sunsetsatellite.signalindustries.util.Tier;
 
@@ -54,6 +58,8 @@ public class SIBlocks {
     public static Block prototypeFluidTank;
 
     public static Block prototypeEnergyCell;
+
+    public static Block prototypeCrusher;
 
     @EventListener
     public static void registerBlocks(BlockRegistryEvent event){
@@ -151,6 +157,17 @@ public class SIBlocks {
                         .withDefaultTexture("cell_prototype")
         );
 
+        prototypeCrusher = customBlock(new CrusherBlock(NAMESPACE.id("prototype_crusher"), Material.STONE, Tier.PROTOTYPE),
+                "prototype.crusher",
+                Tier.PROTOTYPE,
+                new MachineTextures(Tier.PROTOTYPE)
+                        .withDefaultTopTexture("crusher_prototype_top_inactive")
+                        .withDefaultNorthTexture("crusher_prototype_side")
+                        .withActiveTopTexture("crusher_prototype_top_active")
+                        .withActiveNorthTexture("crusher_prototype_side")
+                        .withOverbrightTopTexture("crusher_overlay")
+        );
+
         energyFlowing = new TemplateFlowingLiquidBlock(NAMESPACE.id("energy_flowing"),Material.WATER).setTranslationKey(NAMESPACE, "signalumEnergy.flowing");
         energyStill = new TemplateStillLiquidBlock(NAMESPACE.id("energy_still"),Material.WATER).setTranslationKey(NAMESPACE, "signalumEnergy.still");
 
@@ -193,6 +210,12 @@ public class SIBlocks {
     public static void registerBlockEntities(BlockEntityRegisterEvent event) {
         event.register(FluidTankBlockEntity.class, NAMESPACE.id("fluid_tank").toString());
         event.register(EnergyCellBlockEntity.class, NAMESPACE.id("energy_cell").toString());
+        event.register(CrusherBlockEntity.class, NAMESPACE.id("crusher").toString());
+    }
+
+    @EventListener
+    public static void registerBlockEntityRenderers(BlockEntityRendererRegisterEvent event){
+        //event.renderers.put(FluidTankBlockEntity.class, new RenderFluidInBlock());
     }
 
     @EventListener

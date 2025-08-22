@@ -104,7 +104,7 @@ public class RecipeSymbol {
 
     public boolean matches(ItemStack stack){
         if(stack == null) return false;
-        if(stack.isIn(TagKey.of(ItemRegistry.INSTANCE.getKey(), Identifier.of(itemGroup)))) return true;
+        if(itemGroup != null && stack.isIn(TagKey.of(ItemRegistry.INSTANCE.getKey(), Identifier.of(itemGroup)))) return true;
         List<ItemStack> stacks = resolve();
         boolean foundId = false;
         boolean foundMeta = false;
