@@ -30,6 +30,7 @@ allprojects {
     apply plugin: 'maven-publish'
     apply plugin: 'fabric-loom'
     apply plugin: 'babric-loom-extension'
+    apply plugin: 'com.modrinth.minotaur'
 }
 
 repositories {
@@ -136,9 +137,10 @@ dependencies {
         transitive false
     }
 
-    modImplementation("net.glasslauncher.mods:AlwaysMoreItems:${project.alwaysmoreitems_version}") {
+    implementation(project(path: ":ami", configuration: "namedElements"))
+    /*modImplementation("net.glasslauncher.mods:AlwaysMoreItems:${project.alwaysmoreitems_version}") {
         transitive false
-    }
+    }*/
 
     modImplementation("maven.modrinth:retrocommands:${project.retrocommands_version}-b1.7.3") {
         transitive false
@@ -259,6 +261,7 @@ tasks.register("update") {
         updateDependency(lines, "Spawn Eggs", "spawneggs_version", "https://maven.glass-launcher.net/releases/net/danygames2014/spawneggs")
         updateDependency(lines, "Retro Commands", "retrocommands_version", "https://api.modrinth.com/maven/maven/modrinth/retrocommands")
         updateDependency(lines, "RetroAuth", "retroauth_version", "https://api.modrinth.com/maven/maven/modrinth/retroauth")
+        updateDependency(lines, "NyaLib", "nyalib_version", "https://maven.glass-launcher.net/releases/net/danygames2014/NyaLib")
         updateDependency(lines, "UniTweaks", "unitweaks_version", "https://api.modrinth.com/maven/maven/modrinth/unitweaks")
         
         propsFile.text = lines.join(System.lineSeparator())

@@ -1,16 +1,16 @@
 package sunsetsatellite.signalindustries.screen.handler;
 
+import net.danygames2014.nyalib.fluid.FluidSlot;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.slot.Slot;
 import sunsetsatellite.signalindustries.block.entity.base.FluidItemContainerBlockEntity;
 import sunsetsatellite.signalindustries.screen.handler.base.MachineScreenHandler;
-import sunsetsatellite.signalindustries.util.SlotFluid;
 
 public class FluidTankScreenHandler extends MachineScreenHandler {
     public FluidTankScreenHandler(PlayerInventory inv, FluidItemContainerBlockEntity tile) {
         super(inv, tile);
 
-        SlotFluid slot = new SlotFluid(tile, 0, 62 + 18,17 + 18);
+        FluidSlot slot = new FluidSlot(tile, 0, 62 + 18,17 + 18);
         addFluidSlot(slot);
 
         for(int j = 0; j < 3; j++)

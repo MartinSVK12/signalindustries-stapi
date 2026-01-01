@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import sunsetsatellite.signalindustries.interfaces.Tiered;
 import sunsetsatellite.signalindustries.util.Tier;
 
-public class TieredItem extends TemplateItem implements Tiered {
+public class TieredItem extends TemplateItem implements Tiered, CustomTooltipProvider {
     public final Tier tier;
 
     public TieredItem(Identifier identifier, Tier tier) {

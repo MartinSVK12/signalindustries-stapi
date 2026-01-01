@@ -14,6 +14,10 @@ import java.util.ArrayList;
 
 public class FluidTankBlockEntity extends TieredBlockEntity {
 
+    //only for infinite tier fluid tank, if true, the fluid tank will act as an infinite source of some fluid, if false, it will act as a sink destroying any fluid it gets.
+    //does not do anything for any other tier
+    public boolean isInfiniteSource = true;
+
     public FluidTankBlockEntity() {
         fluidContents = new FluidStack[1];
         fluidCapacity = new int[1];
@@ -38,5 +42,10 @@ public class FluidTankBlockEntity extends TieredBlockEntity {
         } else {
             fluidCapacity[0] = (int) Math.pow(2, tier.ordinal()) * 16000;
         }
+    }
+
+    @Override
+    public String getName() {
+        return "container.signalindustries.fluidTank.name";
     }
 }

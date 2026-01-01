@@ -2,16 +2,17 @@ package sunsetsatellite.signalindustries.block.base;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
+import net.modificationstation.stationapi.api.client.item.CustomTooltipProvider;
 import net.modificationstation.stationapi.api.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 import sunsetsatellite.catalyst.core.util.model.LayeredCubeModel;
 import sunsetsatellite.signalindustries.interfaces.Tiered;
 import sunsetsatellite.signalindustries.util.Tier;
 
-public class TieredBlock extends SIBlock implements Tiered, LayeredCubeModel {
+public class TieredBlock extends SIBlock implements Tiered, LayeredCubeModel, CustomTooltipProvider {
     public final Tier tier;
 
-    public TieredBlock(Identifier identifier, Material material, Tier tier) {
+    public TieredBlock(String identifier, Material material, Tier tier) {
         super(identifier, material);
         this.tier = tier;
     }

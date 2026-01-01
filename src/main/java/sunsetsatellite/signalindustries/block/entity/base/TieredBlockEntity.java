@@ -19,9 +19,4 @@ public class TieredBlockEntity extends CoverableBlockEntity implements Tiered, B
     public Tier getTier() {
         return tier;
     }
-
-    @Override
-    public @NotNull String[] getTooltip(ItemStack itemStack, String s) {
-        throw new UnsupportedOperationException();
-    }
 }

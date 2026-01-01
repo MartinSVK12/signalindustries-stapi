@@ -9,13 +9,14 @@ import net.modificationstation.stationapi.api.world.BlockStateView;
 import org.jetbrains.annotations.Nullable;
 import sunsetsatellite.catalyst.core.util.model.LayeredCubeModel;
 import sunsetsatellite.catalyst.core.util.model.TextureLayer;
+import sunsetsatellite.signalindustries.SignalIndustries;
 
 public class SIBlock extends TemplateBlock implements LayeredCubeModel {
 
     public final TextureLayer textures = new TextureLayer(0);
 
-    public SIBlock(Identifier identifier, Material material) {
-        super(identifier, material);
+    public SIBlock(String identifier, Material material) {
+        super(Identifier.of(SignalIndustries.NAMESPACE,identifier), material);
     }
 
     @Override

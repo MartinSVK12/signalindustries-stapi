@@ -6,9 +6,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import sunsetsatellite.signalindustries.SignalIndustries;
 import sunsetsatellite.signalindustries.recipes.base.RecipeGroupSI;
-import sunsetsatellite.signalindustries.recipes.entry.RecipeEntryMachine;
-import sunsetsatellite.signalindustries.recipes.entry.RecipeEntryMachineFluid;
-import sunsetsatellite.signalindustries.recipes.entry.RecipeEntrySI;
+import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntryMachine;
+import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntryMachineFluid;
+import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntrySI;
 import sunsetsatellite.signalindustries.util.RecipeProperties;
 import sunsetsatellite.signalindustries.util.RecipeSymbol;
 
@@ -258,7 +258,6 @@ public abstract class TieredMachineSimpleBlockEntity extends TieredMachineBaseBl
                             return false;
                         }
                     }
-                    return false;
                 } else {
                     return false;
                 }

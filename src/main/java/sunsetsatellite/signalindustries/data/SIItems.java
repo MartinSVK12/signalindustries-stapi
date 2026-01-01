@@ -7,7 +7,6 @@ import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import sunsetsatellite.signalindustries.item.SignaliteCrystalBatteryItem;
 
 import java.util.HashMap;
-import java.util.function.Supplier;
 
 import static sunsetsatellite.signalindustries.SignalIndustries.NAMESPACE;
 
@@ -21,10 +20,12 @@ public class SIItems {
     public static Item signalumCrystalEmpty;
     public static Item awakenedSignalumCrystal;
     public static Item awakenedSignalumFragment;
+    public static Item volatileSignalumCrystal;
 
     // Other Minerals
     public static Item dilithiumShard;
     public static Item dimensionalShard;
+    public static Item emberCoal;
 
     // Batteries
     public static Item signalumCrystalBattery;
@@ -43,6 +44,7 @@ public class SIItems {
     public static Item signalumAlloyMesh;
 
     // Ingots
+    public static Item steelIngot;
     public static Item crystalAlloyIngot;
     public static Item reinforcedCrystalAlloyIngot;
     public static Item saturatedSignalumAlloyIngot;
@@ -56,6 +58,10 @@ public class SIItems {
     public static Item emptySignalumCrystalDust;
     public static Item saturatedSignalumCrystalDust;
     public static Item awakenedSignalumCrystalDust;
+    public static Item emberCoalDust;
+
+    // Tiny Dusts
+    public static Item tinyEmberCoalDust;
 
     // Gears
     public static Item diamondCuttingGear;
@@ -95,6 +101,8 @@ public class SIItems {
         signalumCrystalEmpty = simpleItem("empty_signalite_crystal", "signalumCrystalEmpty", "signalum_crystal_empty");
         awakenedSignalumCrystal = simpleItem("awakened_signalite_crystal", "awakenedSignalumCrystal", "awakened_signalum_crystal");
         awakenedSignalumFragment = simpleItem("awakened_signalite_fragment", "awakenedSignalumFragment", "awakened_signalum_fragment");
+        //TODO: implement
+        volatileSignalumCrystal = simpleItem("volatile_signalite_crystal", "volatileSignalumCrystal", "volatile_signalum_crystal").setMaxCount(4);
 
         signalumCrystalBattery = customItem(new SignaliteCrystalBatteryItem(NAMESPACE.id("signalite_crystal_battery"), false).setMaxCount(1), "signalumCrystal.battery", "signalum_crystal_battery");
         infiniteSignalumCrystal = customItem(new SignaliteCrystalBatteryItem(NAMESPACE.id("infinite_signalite_crystal"), true).setMaxCount(1), "infiniteSignalumCrystal", "infinite_signalum_crystal");
@@ -110,6 +118,7 @@ public class SIItems {
         awakenedAlloyPlate = simpleItem("awakened_alloy_plate", "awakenedAlloyPlate", "awakened_alloy_plate");
         signalumAlloyMesh = simpleItem("signalum_alloy_mesh", "signalumAlloyMesh", "signalum_alloy_mesh");
 
+        steelIngot = simpleItem("steel_ingot", "steelIngot", "steel_ingot");
         crystalAlloyIngot = simpleItem("crystal_alloy_ingot", "crystalAlloyIngot", "crystal_alloy");
         reinforcedCrystalAlloyIngot = simpleItem("reinforced_crystal_alloy_ingot", "reinforcedCrystalAlloyIngot", "reinforced_crystal_alloy");
         saturatedSignalumAlloyIngot = simpleItem("saturated_signalum_alloy_ingot", "saturatedSignalumAlloyIngot", "saturated_signalum_alloy");
@@ -138,6 +147,9 @@ public class SIItems {
         coalDust = simpleItem("coal_dust", "coalDust", "coal_dust");
         ironDust = simpleItem("iron_dust", "ironDust", "iron_dust");
         goldDust = simpleItem("gold_dust", "goldDust", "gold_dust");
+        emberCoal = simpleItem("ember_coal", "emberCoal", "nether_coal");
+        emberCoalDust = simpleItem("ember_coal_dust", "emberCoalDust", "nether_coal_dust");
+        tinyEmberCoalDust = simpleItem("tiny_ember_coal_dust", "tinyEmberCoalDust", "tiny_nether_coal_dust");
         emptySignalumCrystalDust = simpleItem("empty_signalite_crystal_dust", "signalumCrystalDust", "empty_signalum_dust");
         saturatedSignalumCrystalDust = simpleItem("saturated_signalite_crystal_dust", "saturatedSignalumCrystalDust", "saturated_signalum_dust");
         awakenedSignalumCrystalDust = simpleItem("awakened_signalite_crystal_dust", "awakenedSignalumCrystalDust", "awakened_signalum_dust");

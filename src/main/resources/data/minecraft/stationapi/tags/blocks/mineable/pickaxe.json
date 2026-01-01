@@ -11,6 +11,14 @@
     "signalindustries:cobblestone_bricks",
     "signalindustries:crystal_alloy_bricks",
     "signalindustries:reinforced_alloy_bricks",
-    "signalindustries:prototype_fluid_tank"
+    "signalindustries:prototype_fluid_tank",
+    "signalindustries:prototype_energy_cell",
+    "signalindustries:prototype_alloy_smelter",
+    "signalindustries:prototype_crusher",
+    "signalindustries:meteorite",
+    "signalindustries:meteorite_iron_ore",
+    "signalindustries:signalite_ore",
+    "signalindustries:dilithium_ore",
+    "signalindustries:dimensional_shard_ore"
   ]
 }

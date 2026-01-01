@@ -7,12 +7,12 @@
     "AMITooltipSystemMixin",
     "BucketItemMixin",
     "LiquidBlockMixin",
+    "OverworldChunkGeneratorMixin",
     "TooltipMixin"
   ],
   "server": [
   ],
   "client": [
-    "InteractionManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

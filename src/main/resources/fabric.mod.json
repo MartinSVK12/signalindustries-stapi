@@ -27,7 +27,8 @@
       "sunsetsatellite.signalindustries.data.SIBlocks",
       "sunsetsatellite.signalindustries.data.SITextures",
       "sunsetsatellite.signalindustries.data.SIFluids",
-      "sunsetsatellite.signalindustries.data.SIRecipes"
+      "sunsetsatellite.signalindustries.data.SIRecipes",
+      "sunsetsatellite.signalindustries.data.SIPackets"
     ],
     "stationapi:event_bus_client": [
       "sunsetsatellite.signalindustries.SignalIndustriesClient",
@@ -38,6 +39,9 @@
     ],
     "alwaysmoreitems:plugin": [
       "sunsetsatellite.signalindustries.api.impl.ami.AMIPlugin"
+    ],
+    "gcapi3": [
+      "sunsetsatellite.signalindustries.SignalIndustries"
     ]
   },
   "mixins": [

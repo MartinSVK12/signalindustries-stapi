@@ -1,22 +1,49 @@
 package sunsetsatellite.signalindustries.screen;
 
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.resource.language.I18n;
-import net.minecraft.client.resource.language.TranslationStorage;
 import net.minecraft.entity.player.PlayerInventory;
 import org.lwjgl.opengl.GL11;
 import sunsetsatellite.signalindustries.block.entity.CrusherBlockEntity;
 import sunsetsatellite.signalindustries.block.entity.base.FluidItemContainerBlockEntity;
-import sunsetsatellite.signalindustries.fluid.FluidScreen;
-import sunsetsatellite.signalindustries.fluid.FluidScreenHandler;
+import sunsetsatellite.signalindustries.screen.base.FluidIOScreen;
+import sunsetsatellite.signalindustries.screen.base.ItemIOScreen;
 import sunsetsatellite.signalindustries.screen.handler.CrusherScreenHandler;
 
-public class CrusherScreen extends FluidScreen {
+public class CrusherScreen extends HandledScreen {
 
     public CrusherBlockEntity tile;
 
     public CrusherScreen(PlayerInventory playerInventory, FluidItemContainerBlockEntity blockEntity) {
         super(new CrusherScreenHandler(playerInventory, blockEntity));
         this.tile = (CrusherBlockEntity) blockEntity;
+    }
+
+    public ButtonWidget itemIoButton;
+    public ButtonWidget fluidIoButton;
+
+    @Override
+    public void init() {
+        ButtonWidget fluidIo = new ButtonWidget(0, Math.round((float) width / 2) + 60, Math.round((float) height / 2) - 80, 20, 20, "F");
+        buttons.add(fluidIo);
+        ButtonWidget itemIo = new ButtonWidget(1, Math.round((float) width / 2) + 60, Math.round((float) height / 2) - 60, 20, 20, "I");
+        buttons.add(itemIo);
+        fluidIoButton = fluidIo;
+        itemIoButton = itemIo;
+        super.init();
+    }
+
+    @Override
+    protected void buttonClicked(ButtonWidget button) {
+        if(!button.active) return;
+
+        if(button == itemIoButton){
+            minecraft.setScreen(new ItemIOScreen(minecraft.player, container, this, tile));
+        } else if(button == fluidIoButton){
+            minecraft.setScreen(new FluidIOScreen(minecraft.player, container, this, tile));
+        }
+        super.buttonClicked(button);
     }
 
     @Override

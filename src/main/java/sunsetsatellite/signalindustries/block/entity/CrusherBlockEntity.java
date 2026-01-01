@@ -4,10 +4,11 @@ import net.minecraft.item.ItemStack;
 import sunsetsatellite.signalindustries.block.entity.base.TieredMachineSimpleBlockEntity;
 import sunsetsatellite.signalindustries.data.SIFluids;
 import sunsetsatellite.signalindustries.data.SIRecipes;
+import sunsetsatellite.signalindustries.util.Boostable;
 
 import java.util.ArrayList;
 
-public class CrusherBlockEntity extends TieredMachineSimpleBlockEntity {
+public class CrusherBlockEntity extends TieredMachineSimpleBlockEntity implements Boostable {
 
     public CrusherBlockEntity() {
         itemContents = new ItemStack[2];

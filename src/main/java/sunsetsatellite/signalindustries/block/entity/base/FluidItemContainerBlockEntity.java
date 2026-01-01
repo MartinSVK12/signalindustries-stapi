@@ -4,6 +4,9 @@ import net.danygames2014.nyalib.fluid.Fluid;
 import net.danygames2014.nyalib.fluid.FluidHandler;
 import net.danygames2014.nyalib.fluid.FluidStack;
 import net.danygames2014.nyalib.item.ItemHandler;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
@@ -11,14 +14,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtInt;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayNetworkHandler;
 import org.jetbrains.annotations.Nullable;
 import sunsetsatellite.catalyst.core.util.Connection;
 import sunsetsatellite.catalyst.core.util.Direction;
 import sunsetsatellite.catalyst.core.util.io.FluidIO;
 import sunsetsatellite.catalyst.core.util.io.ItemIO;
+import sunsetsatellite.catalyst.core.util.mp.BlockEntityUpdatePacket;
+import sunsetsatellite.catalyst.core.util.vector.Vec3i;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FluidItemContainerBlockEntity extends BlockEntity implements FluidHandler, ItemHandler, Inventory, ItemIO, FluidIO {
@@ -31,6 +39,15 @@ public class FluidItemContainerBlockEntity extends BlockEntity implements FluidH
     public HashMap<Direction, Integer> activeFluidSlots = new HashMap<>();
     public HashMap<Direction, Connection> itemConnections = new HashMap<>();
     public HashMap<Direction, Integer> activeItemSlots = new HashMap<>();
+
+    public FluidItemContainerBlockEntity() {
+        for (Direction dir : Direction.values()) {
+            itemConnections.put(dir, Connection.NONE);
+            fluidConnections.put(dir, Connection.NONE);
+            activeItemSlots.put(dir,0);
+            activeFluidSlots.put(dir,0);
+        }
+    }
 
     // Fluid Handler
 
@@ -584,5 +601,24 @@ public class FluidItemContainerBlockEntity extends BlockEntity implements FluidH
         tag.put("itemActiveSlots",activeItemSlotsTag);
 
         tag.put("Items", itemListTag);
+    }
+
+    @Override
+    public Block getBlock() {
+        return Block.BLOCKS[this.world.getBlockId(this.x, this.y, this.z)];
+    }
+
+    public Vec3i getPosition(){
+        return new Vec3i(this.x,this.y,this.z);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if(FabricLoader.getInstance().getEnvironmentType() == EnvType.SERVER){
+            MinecraftServer server = (MinecraftServer) FabricLoader.getInstance().getGameInstance();
+            List<ServerPlayNetworkHandler> list = server.connections.connections;
+            list.forEach(handler -> handler.sendPacket(new BlockEntityUpdatePacket(this)));
+        }
     }
 }

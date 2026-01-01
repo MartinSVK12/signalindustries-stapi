@@ -1,6 +1,21 @@
 fluid.@.energy.name=Signaling Energy
-fluid.@.burntEnergy.name=Burnt Signaling Energy
-fluid.@.worldResin.name=World Resin
+fluid.@.burnt_energy.name=Burnt Signaling Energy
+fluid.@.world_resin.name=World Resin
+
+tile.@.meteorite.name=Meteorite
+tile.@.meteorite.desc=A rock from outer space.
+tile.@.meteoriteIronOre.name=Meteorite Iron Ore
+tile.@.meteoriteIronOre.desc=Iron ore encased in meteoritic rock.
+tile.@.signalumOre.name=Signalite Crystal Ore
+tile.@.signalumOre.desc=<Raw Signalite Crystals> encased in meteoritic rock.
+tile.@.dilithiumOre.name=Dilithium Ore
+tile.@.dilithiumOre.desc=<Dilithium Shards> encased in meteoritic rock.
+tile.@.dimensionalShardOre.name=Dimensional Shard Ore
+tile.@.dimensionalShardOre.desc=Shards from other worlds stuck between the fibers of reality.
+tile.@.dimensionalShardOre.name=Dimensional Shard Ore
+tile.@.dimensionalShardOre.desc=Shards from other worlds stuck between the fibers of reality.
+tile.@.emberCoalOre.name=Ember Coal Ore
+tile.@.emberCoalOre.desc=Ember coal encased in netherrack.
 
 tile.@.prototype.machine.name=Prototype Machine Core
 tile.@.prototype.machine.desc=Key component for Prototype-tier machines.
@@ -42,6 +57,13 @@ tile.@.reinforced.bricks.desc=Stacked bricks of Reinforced Crystal Alloy ingots.
 tile.@.awakened.bricks.name=Awakened Alloy Bricks
 tile.@.awakened.bricks.desc=Stacked bricks of Awakened Alloy ingots.
 
+tile.@.glowingObsidian.name=Glowing Obsidian
+tile.@.glowingObsidian.desc=Obsidian infused with ember coal.
+tile.@.realityFabric.name=Fabric of Reality
+tile.@.realityFabric.desc=Holds reality together.
+tile.@.rootedFabric.name=Rooted Fabric
+tile.@.rootedFabric.desc=There's something in between the threads of reality.
+
 tile.@.prototype.fluidTank.name=Prototype Fluid Tank
 tile.@.prototype.fluidTank.desc=Tank for storing various fluids. Unsuitable for <Signaling Energy>.
 
@@ -59,6 +81,67 @@ tile.@.reinforced.wakingCrusher.desc=A bigger version of the <Reinforced Pulveri
 tile.@.awakened.crusher.name=Awakened Atomic Pulverizer Controller
 tile.@.awakened.crusher.desc=Will it blend? Only one way to find out!
 
+tile.@.prototype.alloySmelter.name=Prototype Alloy Smelter
+tile.@.prototype.alloySmelter.desc=Combines metals into alloys with heat.
+tile.@.basic.alloySmelter.name=Basic Alloy Smelter
+tile.@.basic.alloySmelter.desc=Combines metals into alloys with more heat.
+tile.@.reinforced.alloySmelter.name=Reinforced Blast Alloy Smelter
+tile.@.reinforced.alloySmelter.desc=Combines even heat resistant metals with even more heat.
+tile.@.reinforced.wakingAlloySmelter.name=Waking Reinforced Blast Alloy Smelter
+tile.@.reinforced.wakingAlloySmelter.desc=A bigger version of the <Reinforced Blast Alloy Smelter>! Can handle materials it shouldn't although at a cost.
+tile.@.awakened.alloySmelter.name=Awakened Composite Forge Chamber Controller
+tile.@.awakened.alloySmelter.desc=Fuses even the most resistant metals with heat surpassing that of cores of stars.
+
+tile.@.prototype.plateFormer.name=Prototype Plate Former
+tile.@.prototype.plateFormer.desc=Welcome to the hydraulic pressing channel. Makes more <Plates> than the <Plate Hammer> and out of more materials.
+tile.@.basic.plateFormer.name=Basic Metal Press
+tile.@.basic.plateFormer.desc=Bends and shapes metal ingots.
+tile.@.reinforced.plateFormer.name=Reinforced Compressor
+tile.@.reinforced.plateFormer.desc=Bends and shapes materials with more pressure.
+tile.@.reinforced.wakingPlateFormer.name=Waking Reinforced Compressor
+tile.@.reinforced.wakingPlateFormer.desc=A bigger version of the <Reinforced Compressor>! Can handle materials it shouldn't although at a cost.
+tile.@.awakened.plateFormer.name=Awakened Singularity Compressor Controller
+tile.@.awakened.plateFormer.desc=The raw power of this machine would be capable of compressing materials into black holes if it wasn't controlled.
+
+tile.@.prototype.crystalCutter.name=Prototype Crystal Cutter
+tile.@.prototype.crystalCutter.desc=Cuts and removes impurities from <Raw S. Crystals>, turning them into brilliant <Signalite Crystals>!
+tile.@.basic.crystalCutter.name=Basic Crystal Cutter
+tile.@.basic.crystalCutter.desc=An upgraded <Crystal Cutter> that can also cut a few more other things as well.
+tile.@.reinforced.crystalCutter.name=Reinforced Crystal Cutter
+tile.@.reinforced.crystalCutter.desc=Better, faster, stronger. Cuts most materials with precision and ease.
+tile.@.awakened.crystalCutter.name=Awakened Precision Laser Cutter Controller
+tile.@.awakened.crystalCutter.desc=Uses frigging laser beams to slice through almost anything! What more could you want.
+
+tile.@.prototype.extractor.name=Prototype Signalite Extractor
+tile.@.prototype.extractor.desc=Extracts <Signaling Energy> from <Raw Signalite Crystals>.
+tile.@.basic.extractor.name=Basic Signalite Extractor
+tile.@.basic.extractor.desc=Extracts <Signaling Energy> from <Raw Signalite Crystals>.
+tile.@.reinforced.extractor.name=Reinforced Signalite Extraction Manifold
+tile.@.reinforced.extractor.desc=Extracts large amounts of <Signaling Energy> from several <Raw Signalite Crystals> at once.
+tile.@.awakened.extractor.name=Awakened Signalite Extraction Facility Controller
+tile.@.awakened.extractor.desc=Will extract all <Signaling Energy> from a huge amount of <Raw Signalite Crystals> all at once with extraordinary efficiency.
+
+tile.@.basic.casing.name=Basic Casing
+tile.@.basic.casing.desc=Used for Basic-tier and above multiblock machines.
+tile.@.basic.casing2.name=Basic Casing (Type 2)
+tile.@.basic.casing2.desc=Alternative casing used for Basic-tier and above multiblock machines.
+tile.@.reinforced.casing.name=Reinforced Casing
+tile.@.reinforced.casing.desc=Used for Reinforced-tier multiblock machines.
+tile.@.reinforced.casing2.name=Reinforced Casing (Type 2)
+tile.@.reinforced.casing2.desc=Alternative casing used for Reinforced-tier and above multiblock machines.
+tile.@.reinforced.grate.name=Reinforced Grate
+tile.@.reinforced.grate.desc=Alternative casing used for Reinforced-tier and above multiblock machines.
+tile.@.reinforced.frame.name=Reinforced Frame
+tile.@.reinforced.frame.desc=Alternative casing used for Reinforced-tier and above multiblock machines.
+tile.@.awakened.casing.name=Awakened Casing
+tile.@.awakened.casing.desc=Used for Awakened-tier multiblock machines.
+tile.@.awakened.casing.socket.name=Awakened Socket Casing
+tile.@.awakened.casing.socket.desc=Used for Awakened-tier multiblock machines. Additionally a dimensional shard can be slotted in.
+tile.@.awakened.casing2.name=Awakened Casing (Type 2)
+tile.@.awakened.casing2.desc=Alternative casing used for Awakened-tier multiblock machines.
+tile.@.reinforced.glass.name=Reinforced Crystal Glass
+tile.@.reinforced.glass.desc=Scratches at level 9, with deeper grooves at level 10.
+
 item.@.rawSignalumCrystal.name=Raw Signalite Crystal
 item.@.rawSignalumCrystal.desc=The beginning of it all. Crude shards infused with a new kind of energy.
 item.@.signalumCrystal.name=Signalite Crystal
@@ -73,6 +156,25 @@ item.@.awakenedSignalumCrystal.name=Awakened Signalite Crystal
 item.@.awakenedSignalumCrystal.desc=The pinnacle of Signalite technology. The power of the first star reborn. Shine!
 item.@.awakenedSignalumFragment.name=Awakened Signalite Fragment
 item.@.awakenedSignalumFragment.desc=Let me reach for the stars now, they're so close to me~
+item.@.emberCoal.name=Ember Coal
+item.@.emberCoal.desc=A more energetic form of coal found in the Nether.
+
+item.@.coalDust.name=Coal Dust
+item.@.coalDust.desc=Ground up coal.
+item.@.ironDust.name=Iron Dust
+item.@.ironDust.desc=Ground up iron.
+item.@.goldDust.name=Gold Dust
+item.@.goldDust.desc=Ground up gold.
+item.@.emberCoalDust.name=Ember Coal Dust
+item.@.emberCoalDust.desc=Ground up ember coal.
+item.@.tinyEmberCoalDust.name=Tiny Ember Coal Dust
+item.@.tinyEmberCoalDust.desc=A smaller amount of ground up ember coal.
+item.@.signalumCrystalDust.name=Signalite Crystal Dust
+item.@.signalumCrystalDust.desc=Ground up empty signalite crystals.
+item.@.saturatedSignalumCrystalDust.name=Saturated Signalite Crystal Dust
+item.@.saturatedSignalumCrystalDust.desc=Ground up signalite crystals that contained energy.
+item.@.awakenedSignalumCrystalDust.name=Awakened Signalite Crystal Dust
+item.@.awakenedSignalumCrystalDust.desc=Ground up awakened signalite crystals.
 
 item.@.cobblestonePlate.name=Cobblestone Plate
 item.@.cobblestonePlate.desc=A plate made out of cobblestone.
@@ -100,6 +202,8 @@ item.@.diamondCuttingGear.desc=Sharp! Used in a specific machine for cutting stu
 item.@.signalumCuttingGear.name=Signalite Cutting Gear
 item.@.signalumCuttingGear.desc=Even sharper gear for cutting tougher stuff.
 
+item.@.steelIngot.name=Steel Ingot
+item.@.steelIngot.desc=An alloy of iron and ember coal.
 item.@.crystalAlloyIngot.name=Crystal Alloy Ingot
 item.@.crystalAlloyIngot.desc=An alloy of steel and <Signalite Crystal Dust>.
 item.@.saturatedSignalumAlloyIngot.name=Saturated Signalite Alloy Ingot

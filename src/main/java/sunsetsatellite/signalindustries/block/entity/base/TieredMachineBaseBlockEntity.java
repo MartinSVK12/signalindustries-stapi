@@ -1,9 +1,12 @@
 package sunsetsatellite.signalindustries.block.entity.base;
 
 import net.minecraft.nbt.NbtCompound;
+import sunsetsatellite.catalyst.core.util.TickTimer;
+import sunsetsatellite.signalindustries.interfaces.HasIOPreview;
 import sunsetsatellite.signalindustries.util.ActiveForm;
+import sunsetsatellite.signalindustries.util.IOPreview;
 
-public abstract class TieredMachineBaseBlockEntity extends TieredBlockEntity implements ActiveForm {
+public abstract class TieredMachineBaseBlockEntity extends TieredBlockEntity implements ActiveForm, HasIOPreview {
 
     public int fuelBurnTicks = 0;
     public int fuelMaxBurnTicks = 0;
@@ -12,6 +15,31 @@ public abstract class TieredMachineBaseBlockEntity extends TieredBlockEntity imp
     public float speedMultiplier = 1;
     public float yield = 1;
     public boolean disabled = false;
+    public IOPreview preview = IOPreview.NONE;
+    public TickTimer IOPreviewTimer = new TickTimer(this,this::disableIOPreview,20,false);
+
+    @Override
+    public void disableIOPreview() {
+        preview = IOPreview.NONE;
+    }
+
+    @Override
+    public void setTemporaryIOPreview(IOPreview preview, int ticks) {
+        IOPreviewTimer.value = ticks;
+        IOPreviewTimer.max = ticks;
+        IOPreviewTimer.unpause();
+        this.preview = preview;
+    }
+
+    @Override
+    public IOPreview getPreview() {
+        return preview;
+    }
+
+    @Override
+    public void setPreview(IOPreview preview) {
+        this.preview = preview;
+    }
 
     @Override
     public boolean isActive() {
@@ -27,6 +55,7 @@ public abstract class TieredMachineBaseBlockEntity extends TieredBlockEntity imp
     public void tick() {
         super.tick();
         if(world.isRemote) return;
+        IOPreviewTimer.tick();
         if(getBlock() != null){
             applyModifiers();
         }

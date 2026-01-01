@@ -1,6 +1,5 @@
 package sunsetsatellite.signalindustries.block.entity;
 
-import net.danygames2014.nyalib.fluid.FluidRegistry;
 import net.danygames2014.nyalib.fluid.FluidStack;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
@@ -13,6 +12,10 @@ import sunsetsatellite.signalindustries.util.Tier;
 import java.util.ArrayList;
 
 public class EnergyCellBlockEntity extends TieredBlockEntity {
+
+    //only for infinite tier energy cell, if true, the energy cell will act as an infinite source of energy, if false, it will act as a sink destroying any energy it gets.
+    //does not do anything for any other tier
+    public boolean isInfiniteSource = true;
 
     public EnergyCellBlockEntity() {
         fluidContents = new FluidStack[1];
@@ -34,5 +37,10 @@ public class EnergyCellBlockEntity extends TieredBlockEntity {
         } else {
             fluidCapacity[0] = (int) Math.pow(2, tier.ordinal()) * 16000;
         }
+    }
+
+    @Override
+    public String getName() {
+        return "container.signalindustries.energyCell.name";
     }
 }
