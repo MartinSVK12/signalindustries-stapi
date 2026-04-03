@@ -10,6 +10,8 @@ import sunsetsatellite.signalindustries.block.entity.PlateFormerBlockEntity;
 import sunsetsatellite.signalindustries.block.entity.base.FluidItemContainerBlockEntity;
 import sunsetsatellite.signalindustries.screen.base.FluidIOScreen;
 import sunsetsatellite.signalindustries.screen.base.ItemIOScreen;
+import sunsetsatellite.signalindustries.screen.base.VisualFluidIOScreen;
+import sunsetsatellite.signalindustries.screen.base.VisualItemIOScreen;
 import sunsetsatellite.signalindustries.screen.handler.CrusherScreenHandler;
 import sunsetsatellite.signalindustries.screen.handler.PlateFormerScreenHandler;
 
@@ -41,9 +43,9 @@ public class PlateFormerScreen extends HandledScreen {
         if(!button.active) return;
 
         if(button == itemIoButton){
-            minecraft.setScreen(new ItemIOScreen(minecraft.player, container, this, tile));
+            minecraft.setScreen(new VisualItemIOScreen(minecraft.player, handler, this, tile));
         } else if(button == fluidIoButton){
-            minecraft.setScreen(new FluidIOScreen(minecraft.player, container, this, tile));
+            minecraft.setScreen(new VisualFluidIOScreen(minecraft.player, handler, this, tile));
         }
         super.buttonClicked(button);
     }

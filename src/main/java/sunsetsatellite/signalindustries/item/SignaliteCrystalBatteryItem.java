@@ -1,6 +1,6 @@
 package sunsetsatellite.signalindustries.item;
 
-import net.danygames2014.nyalib.fluid.FluidHandlerItem;
+import net.danygames2014.nyalib.fluid.item.FluidHandlerItem;
 import net.danygames2014.nyalib.fluid.FluidStack;
 import net.minecraft.item.ItemStack;
 import net.modificationstation.stationapi.api.client.item.CustomTooltipProvider;
@@ -46,6 +46,7 @@ public class SignaliteCrystalBatteryItem extends TemplateItem implements FluidHa
 
     @Override
     public FluidStack insertFluid(ItemStack thisStack, FluidStack fluidStack, int slot) {
+        if(fluidStack == null) return null;
         if(!canInsertFluid(thisStack)) return fluidStack;
         if(!fluidStack.isFluidEqual(new FluidStack(SIFluids.ENERGY))) return fluidStack;
         return insertFluid(thisStack, fluidStack);

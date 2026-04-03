@@ -31,6 +31,7 @@ bin/
 # fabric
 
 run/*
+run-server/*
 # Remove the following line to remove server.properties from your project.
 !server.properties
 

@@ -27,7 +27,7 @@ public class FluidIOScreen extends Screen {
     public FluidItemContainerBlockEntity tile;
     public ScreenHandler container;
 
-    public FluidIOScreen(PlayerEntity player, ScreenHandler container, Screen parent, FluidItemContainerBlockEntity tile) {
+    public FluidIOScreen(PlayerEntity player, ScreenHandler handler, Screen parent, FluidItemContainerBlockEntity tile) {
         super();
         this.player = player;
         this.tile = tile;

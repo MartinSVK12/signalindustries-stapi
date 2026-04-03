@@ -9,7 +9,7 @@ import sunsetsatellite.signalindustries.recipes.base.MachineRecipesBase;
 import sunsetsatellite.signalindustries.recipes.entry.RecipeEntryAlloySmelter;
 import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntryMachine;
 import sunsetsatellite.signalindustries.util.RecipeProperties;
-import sunsetsatellite.signalindustries.util.RecipeSymbol;
+import sunsetsatellite.catalyst.core.util.recipe.RecipeSymbol;
 import sunsetsatellite.signalindustries.util.Tier;
 
 public class AlloySmelterRecipes implements MachineRecipesBase<RecipeGroup<RecipeEntryMachine>> {

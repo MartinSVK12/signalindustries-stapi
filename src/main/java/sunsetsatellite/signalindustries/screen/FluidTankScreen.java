@@ -9,6 +9,7 @@ import sunsetsatellite.signalindustries.block.entity.EnergyCellBlockEntity;
 import sunsetsatellite.signalindustries.block.entity.FluidTankBlockEntity;
 import sunsetsatellite.signalindustries.block.entity.base.FluidItemContainerBlockEntity;
 import sunsetsatellite.signalindustries.screen.base.FluidIOScreen;
+import sunsetsatellite.signalindustries.screen.base.VisualFluidIOScreen;
 import sunsetsatellite.signalindustries.screen.handler.FluidTankScreenHandler;
 import sunsetsatellite.signalindustries.util.Tier;
 
@@ -52,7 +53,7 @@ public class FluidTankScreen extends HandledScreen {
             return;
         }
         if (guibutton == fluidIoButton) {
-            minecraft.setScreen(new FluidIOScreen(minecraft.player, container, this, tile));
+            minecraft.setScreen(new VisualFluidIOScreen(minecraft.player, handler, this, tile));
         }
         if(tile.getTier() == Tier.INFINITE && guibutton.id == 1){
             tile.isInfiniteSource = !tile.isInfiniteSource;

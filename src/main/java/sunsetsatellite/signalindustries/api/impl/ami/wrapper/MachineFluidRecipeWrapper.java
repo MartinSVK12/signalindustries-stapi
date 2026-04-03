@@ -7,10 +7,9 @@ import net.minecraft.item.ItemStack;
 import net.modificationstation.stationapi.api.util.Formatting;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntryMachine;
 import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntryMachineFluid;
 import sunsetsatellite.signalindustries.util.RecipeProperties;
-import sunsetsatellite.signalindustries.util.RecipeSymbol;
+import sunsetsatellite.catalyst.core.util.recipe.RecipeSymbol;
 
 import java.awt.*;
 import java.util.ArrayList;

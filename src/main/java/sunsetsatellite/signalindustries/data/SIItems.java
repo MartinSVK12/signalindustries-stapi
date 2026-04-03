@@ -5,8 +5,13 @@ import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import sunsetsatellite.signalindustries.item.SignaliteCrystalBatteryItem;
+import sunsetsatellite.signalindustries.item.attachment.BackpackAttachmentItem;
+import sunsetsatellite.signalindustries.item.attachment.base.AttachmentItem;
+import sunsetsatellite.signalindustries.util.AttachmentPoint;
+import sunsetsatellite.signalindustries.util.Tier;
 
 import java.util.HashMap;
+import java.util.List;
 
 import static sunsetsatellite.signalindustries.SignalIndustries.NAMESPACE;
 
@@ -94,6 +99,10 @@ public class SIItems {
     public static Item caramelPlate;
     public static Item krowka;
 
+    // Backpack
+    public static AttachmentItem basicBackpack;
+    public static AttachmentItem reinforcedBackpack;
+
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
         rawSignalumCrystal = simpleItem("raw_signalite_crystal", "rawSignalumCrystal", "raw_signalum_crystal");
@@ -163,6 +172,9 @@ public class SIItems {
         positionMemoryChip = simpleItem("position_memory_chip", "romChip.position", "position_chip");
         precisionControlChip = simpleItem("precision_control_chip", "romChip.precision", "precision_control_chip");
         unlimitedChip = simpleItem("unlimited_chip", "romChip.unlimited", "unlimited_chip");
+
+        basicBackpack = (AttachmentItem) customItem(new BackpackAttachmentItem("basic_backpack", List.of(AttachmentPoint.CORE_BACK), Tier.BASIC).setMaxCount(1),"basic.attachment.backpack", "basic_backpack");
+        reinforcedBackpack = (AttachmentItem) customItem(new BackpackAttachmentItem("reinforced_backpack", List.of(AttachmentPoint.CORE_BACK), Tier.REINFORCED).setMaxCount(1),"reinforced.attachment.backpack", "reinforced_backpack");
     }
 
     public Item simpleItem(String name, String lang, String texture) {

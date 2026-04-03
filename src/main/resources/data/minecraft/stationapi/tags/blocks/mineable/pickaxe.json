@@ -19,6 +19,10 @@
     "signalindustries:meteorite_iron_ore",
     "signalindustries:signalite_ore",
     "signalindustries:dilithium_ore",
-    "signalindustries:dimensional_shard_ore"
+    "signalindustries:dimensional_shard_ore",
+    "signalindustries:glowing_obsidian",
+    "signalindustries:reality_fabric",
+    "signalindustries:rooted_fabric",
+    "signalindustries:dilithium_crystal_block"
   ]
 }

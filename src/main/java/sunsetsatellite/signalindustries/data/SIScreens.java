@@ -7,6 +7,7 @@ import net.modificationstation.stationapi.api.client.gui.screen.GuiHandler;
 import net.modificationstation.stationapi.api.event.registry.GuiHandlerRegistryEvent;
 import net.modificationstation.stationapi.api.registry.Registry;
 import sunsetsatellite.signalindustries.block.entity.*;
+import sunsetsatellite.signalindustries.invs.BackpackInventory;
 import sunsetsatellite.signalindustries.screen.*;
 
 import static sunsetsatellite.signalindustries.SignalIndustries.NAMESPACE;
@@ -23,7 +24,10 @@ public class SIScreens {
         Registry.register(event.registry, NAMESPACE.id("open_crystal_cutter"), new GuiHandler((GuiHandler.ScreenFactoryNoMessage) (p, i)-> new CrystalCutterScreen(p.inventory, ((CrystalCutterBlockEntity) i)), CrystalCutterBlockEntity::new));
         Registry.register(event.registry, NAMESPACE.id("open_plate_former"), new GuiHandler((GuiHandler.ScreenFactoryNoMessage) (p, i)-> new PlateFormerScreen(p.inventory, ((PlateFormerBlockEntity) i)), PlateFormerBlockEntity::new));
         Registry.register(event.registry, NAMESPACE.id("open_extractor"), new GuiHandler((GuiHandler.ScreenFactoryNoMessage) (p, i)-> new ExtractorScreen(p.inventory, ((ExtractorBlockEntity) i)), ExtractorBlockEntity::new));
-
+        Registry.register(event.registry, NAMESPACE.id("open_backpack"),
+                new GuiHandler(
+                        (GuiHandler.ScreenFactoryNoMessage) (p, i) ->
+                                new BackpackScreen(p.inventory, p.inventory.selectedSlot), BackpackInventory::new));
     }
 
 }

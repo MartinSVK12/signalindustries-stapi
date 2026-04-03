@@ -9,6 +9,8 @@ import net.minecraft.world.biome.source.BiomeSource;
 import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.block.States;
 import net.modificationstation.stationapi.api.world.StationFlatteningWorld;
+import sunsetsatellite.catalyst.core.util.BlockInstance;
+import sunsetsatellite.catalyst.core.util.vector.Vec3i;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,16 +21,26 @@ public class InventoryBlockView implements BlockView, StationFlatteningWorld {
     private final Map<BlockPos, Integer> metas;
     private final World world;
 
-    private int visibleLayer = -1;
-
     public InventoryBlockView(World world){
         this.world = world;
         blockStates = new HashMap<>();
         metas = new HashMap<>();
     }
 
-    public void setVisibleLayer(int layer){
-        this.visibleLayer = layer;
+    public InventoryBlockView(World world, List<BlockInstance> blocks) {
+        this.world = world;
+        blockStates = new HashMap<>();
+        metas = new HashMap<>();
+
+        blocks.forEach(B->{
+            setBlockStateWithMetadata(B.pos.x,B.pos.y,B.pos.z,B.state,B.meta);
+        });
+    }
+
+    public void init(List<BlockInstance> blocks){
+        blocks.forEach(B->{
+            setBlockStateWithMetadata(B.pos.x,B.pos.y,B.pos.z,B.state,B.meta);
+        });
     }
 
     public List<BlockPos> getBlockPositions(){
@@ -37,9 +49,6 @@ public class InventoryBlockView implements BlockView, StationFlatteningWorld {
 
     @Override
     public int getBlockId(int x, int y, int z) {
-        if(visibleLayer != -1 && y != visibleLayer){
-            return 0;
-        }
         BlockState blockState = blockStates.get(new BlockPos(x, y, z));
         if(blockState == null || blockState.isAir()) return 0;
         return blockState.getBlock().id;
@@ -62,18 +71,12 @@ public class InventoryBlockView implements BlockView, StationFlatteningWorld {
 
     @Override
     public int getBlockMeta(int x, int y, int z) {
-        if(visibleLayer != -1 && y != visibleLayer){
-            return 0;
-        }
         Integer meta = metas.get(new BlockPos(x, y, z));
         return meta != null ? meta : 0;
     }
 
     @Override
     public Material getMaterial(int x, int y, int z) {
-        if(visibleLayer != -1 && y != visibleLayer){
-            return Material.AIR;
-        }
         BlockState blockState = blockStates.get(new BlockPos(x, y, z));
         if(blockState == null || blockState.isAir()) return Material.AIR;
         return blockState.getMaterial();
@@ -82,12 +85,9 @@ public class InventoryBlockView implements BlockView, StationFlatteningWorld {
     //isOpaque
     @Override
     public boolean method_1783(int x, int y, int z) {
-        if(visibleLayer != -1 && y != visibleLayer){
-            return false;
-        }
         BlockState blockState = blockStates.get(new BlockPos(x, y, z));
         if(blockState == null || blockState.isAir()) return false;
-        return blockState.getBlock().isOpaque();
+        return !blockState.getBlock().isOpaque();
     }
 
     @Override
@@ -104,20 +104,19 @@ public class InventoryBlockView implements BlockView, StationFlatteningWorld {
 
     @Override
     public BlockState getBlockState(int x, int y, int z) {
-        if(visibleLayer != -1 && y != visibleLayer){
-            return States.AIR.get();
-        }
         BlockState blockState = blockStates.get(new BlockPos(x, y, z));
         return blockState != null ? blockState : States.AIR.get();
     }
 
     @Override
     public BlockState setBlockState(int x, int y, int z, BlockState blockState) {
+        blockStates.put(new BlockPos(x, y, z), blockState);
         return blockState;
     }
 
     @Override
     public BlockState setBlockStateWithNotify(BlockPos pos, BlockState blockState) {
+        blockStates.put(pos, blockState);
         return blockState;
     }
 
@@ -136,5 +135,10 @@ public class InventoryBlockView implements BlockView, StationFlatteningWorld {
     @Override
     public int getHeight() {
         return 128;
+    }
+
+    public void clear() {
+        blockStates.clear();
+        metas.clear();
     }
 }

@@ -48,6 +48,7 @@ tile.@.rawCrystalBlock.desc=A solid block of Raw Signalite Crystals.
 tile.@.awakenedSignalumCrystalBlock.name=Block of Awakened Signalite Crystals
 tile.@.awakenedSignalumCrystalBlock.desc=A meter cubed of unreal energy, you should be glad those crystals contain it all.
 
+
 tile.@.prototype.bricks.name=Cobblestone Bricks
 tile.@.prototype.bricks.desc=Stacked bricks of cobblestone.
 tile.@.basic.bricks.name=Crystal Alloy Bricks
@@ -63,6 +64,10 @@ tile.@.realityFabric.name=Fabric of Reality
 tile.@.realityFabric.desc=Holds reality together.
 tile.@.rootedFabric.name=Rooted Fabric
 tile.@.rootedFabric.desc=There's something in between the threads of reality.
+tile.@.ashenTreeLog.name=Ashen Tree Log
+tile.@.ashenTreeLog.desc=An ethereal wood-like material only present in Eternity. Cannot burn.
+tile.@.dilithiumCrystalBlock.name=Dilithium Crystal Block
+tile.@.dilithiumCrystalBlock.desc=A fragile crystal of Dilithium.
 
 tile.@.prototype.fluidTank.name=Prototype Fluid Tank
 tile.@.prototype.fluidTank.desc=Tank for storing various fluids. Unsuitable for <Signaling Energy>.
@@ -141,6 +146,9 @@ tile.@.awakened.casing2.name=Awakened Casing (Type 2)
 tile.@.awakened.casing2.desc=Alternative casing used for Awakened-tier multiblock machines.
 tile.@.reinforced.glass.name=Reinforced Crystal Glass
 tile.@.reinforced.glass.desc=Scratches at level 9, with deeper grooves at level 10.
+
+tile.@.eternityPortal.name=Eternity Portal
+tile.@.eternityPortal.desc=Development utility.
 
 item.@.rawSignalumCrystal.name=Raw Signalite Crystal
 item.@.rawSignalumCrystal.desc=The beginning of it all. Crude shards infused with a new kind of energy.
@@ -274,6 +282,11 @@ item.@.saturatedSignalumCrystalDust.name=Saturated Signalite Crystal Dust
 item.@.saturatedSignalumCrystalDust.desc=Ground up signalite crystals that contained energy.
 item.@.awakenedSignalumCrystalDust.name=Awakened Signalite Crystal Dust
 item.@.awakenedSignalumCrystalDust.desc=Ground up awakened signalite crystals.
+
+item.@.basic.attachment.backpack.name=Basic Backpack
+item.@.basic.attachment.backpack.desc=Portable item & fluid storage. Capable of storing the same amount of items as a chest and 2 fluids (that aren't Signaling Energy).
+item.@.reinforced.attachment.backpack.name=Reinforced Backpack
+item.@.reinforced.attachment.backpack.desc=Portable item & fluid storage. Using latest object shrinking technology it is capable of storing the same amount of items as a double chest and 4 fluids (that aren't Signaling Energy).
 
 container.@.extractor.name=Signalite Extractor
 container.@.fluidTank.name=Fluid Tank

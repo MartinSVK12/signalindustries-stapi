@@ -1,6 +1,9 @@
 package sunsetsatellite.signalindustries.util;
 
+import net.glasslauncher.mods.alwaysmoreitems.api.Rarity;
 import net.modificationstation.stationapi.api.util.Formatting;
+
+import java.awt.*;
 
 public enum Tier {
     PROTOTYPE(Formatting.GRAY,0xFF808080 , "0 (Prototype)"),

@@ -27,7 +27,7 @@ public class ItemIOScreen extends Screen {
     public FluidItemContainerBlockEntity tile;
     public ScreenHandler container;
 
-    public ItemIOScreen(PlayerEntity player, ScreenHandler container, Screen parent, FluidItemContainerBlockEntity tile) {
+    public ItemIOScreen(PlayerEntity player, ScreenHandler handler, Screen parent, FluidItemContainerBlockEntity tile) {
         super();
         this.player = player;
         this.tile = tile;

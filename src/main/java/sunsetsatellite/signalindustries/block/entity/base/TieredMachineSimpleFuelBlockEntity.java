@@ -5,13 +5,12 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.modificationstation.stationapi.api.recipe.FuelRegistry;
-import sunsetsatellite.signalindustries.SignalIndustries;
 import sunsetsatellite.signalindustries.recipes.base.RecipeGroupSI;
 import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntryMachine;
 import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntryMachineFluid;
 import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntrySI;
 import sunsetsatellite.signalindustries.util.RecipeProperties;
-import sunsetsatellite.signalindustries.util.RecipeSymbol;
+import sunsetsatellite.catalyst.core.util.recipe.RecipeSymbol;
 
 import java.util.*;
 

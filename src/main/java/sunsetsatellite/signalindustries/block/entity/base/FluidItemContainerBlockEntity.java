@@ -1,9 +1,9 @@
 package sunsetsatellite.signalindustries.block.entity.base;
 
 import net.danygames2014.nyalib.fluid.Fluid;
-import net.danygames2014.nyalib.fluid.FluidHandler;
 import net.danygames2014.nyalib.fluid.FluidStack;
-import net.danygames2014.nyalib.item.ItemHandler;
+import net.danygames2014.nyalib.fluid.block.FluidHandler;
+import net.danygames2014.nyalib.item.block.ItemHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
@@ -20,6 +20,7 @@ import org.jetbrains.annotations.Nullable;
 import sunsetsatellite.catalyst.core.util.Connection;
 import sunsetsatellite.catalyst.core.util.Direction;
 import sunsetsatellite.catalyst.core.util.io.FluidIO;
+import sunsetsatellite.catalyst.core.util.io.InventoryWrapper;
 import sunsetsatellite.catalyst.core.util.io.ItemIO;
 import sunsetsatellite.catalyst.core.util.mp.BlockEntityUpdatePacket;
 import sunsetsatellite.catalyst.core.util.vector.Vec3i;
@@ -39,6 +40,7 @@ public class FluidItemContainerBlockEntity extends BlockEntity implements FluidH
     public HashMap<Direction, Integer> activeFluidSlots = new HashMap<>();
     public HashMap<Direction, Connection> itemConnections = new HashMap<>();
     public HashMap<Direction, Integer> activeItemSlots = new HashMap<>();
+    public InventoryWrapper wrapper = new InventoryWrapper(this);
 
     public FluidItemContainerBlockEntity() {
         for (Direction dir : Direction.values()) {
@@ -191,24 +193,27 @@ public class FluidItemContainerBlockEntity extends BlockEntity implements FluidH
     @Override
     public boolean canExtractItem(@Nullable net.modificationstation.stationapi.api.util.math.Direction direction) {
         if(direction == null) return true;
-        return fluidConnections.get(Direction.get(direction)) == Connection.OUTPUT;
+        return itemConnections.get(Direction.get(direction)) == Connection.OUTPUT;
     }
 
     @Override
     public ItemStack extractItem(int slot, int amount, @Nullable net.modificationstation.stationapi.api.util.math.Direction direction) {
         if(!canExtractItem(direction)) return null;
-        return null;
+        if(direction != null) slot = activeItemSlots.get(Direction.get(direction));
+        if(getItem(slot, direction) == null) return null;
+        return wrapper.remove(slot, amount, false, false);
     }
 
     @Override
     public boolean canInsertItem(@Nullable net.modificationstation.stationapi.api.util.math.Direction direction) {
         if(direction == null) return true;
-        return fluidConnections.get(Direction.get(direction)) == Connection.INPUT;
+        return itemConnections.get(Direction.get(direction)) == Connection.INPUT;
     }
 
     @Override
     public ItemStack insertItem(ItemStack stack, int slot, @Nullable net.modificationstation.stationapi.api.util.math.Direction direction) {
         if(!canInsertItem(direction) || stack == null) return stack;
+        if(direction != null) slot = activeItemSlots.get(Direction.get(direction));
         ItemStack invStack = getStack(slot);
         if(invStack == null) {
             ItemStack split = stack.split(Math.min(stack.count,stack.getMaxCount()));
@@ -226,31 +231,35 @@ public class FluidItemContainerBlockEntity extends BlockEntity implements FluidH
     @Override
     public ItemStack insertItem(ItemStack stack, @Nullable net.modificationstation.stationapi.api.util.math.Direction direction) {
         if(!canInsertItem(direction) || stack == null) return stack;
-        int n = stack.count;
+        if(direction == null){
+            int n = stack.count;
 
-        for (int i = 0; i < size(); i++) {
-            ItemStack invStack = getStack(i);
-            if(invStack == null) {
-                int amount = Math.min(stack.count, stack.getMaxCount());
-                n -= amount;
-                setStack(i, stack.split(amount));
-                if(n <= 0) break;
-            } else if(invStack.isItemEqual(stack)) {
-                int remaining = Math.min(n,invStack.getMaxCount() - invStack.count);
-                n -= remaining;
-                invStack.count += remaining;
-                if(n <= 0) break;
+            for (int i = 0; i < size(); i++) {
+                ItemStack invStack = getStack(i);
+                if(invStack == null) {
+                    int amount = Math.min(stack.count, stack.getMaxCount());
+                    n -= amount;
+                    setStack(i, stack.split(amount));
+                    if(n <= 0) break;
+                } else if(invStack.isItemEqual(stack)) {
+                    int remaining = Math.min(n,invStack.getMaxCount() - invStack.count);
+                    n -= remaining;
+                    invStack.count += remaining;
+                    if(n <= 0) break;
+                }
             }
+
+            if(n <= 0){
+                return null;
+            }
+
+            ItemStack copy = stack.copy();
+            copy.count = n;
+
+            return copy;
+        } else {
+            return insertItem(stack, activeItemSlots.get(Direction.get(direction)), direction);
         }
-
-        if(n <= 0){
-            return null;
-        }
-
-        ItemStack copy = stack.copy();
-        copy.count = n;
-
-        return copy;
     }
 
     @Override

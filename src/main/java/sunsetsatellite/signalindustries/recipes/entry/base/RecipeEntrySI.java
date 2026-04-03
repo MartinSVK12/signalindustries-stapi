@@ -1,7 +1,7 @@
 package sunsetsatellite.signalindustries.recipes.entry.base;
 
 import sunsetsatellite.catalyst.core.util.recipe.RecipeEntryBase;
-import sunsetsatellite.signalindustries.util.RecipeSymbol;
+import sunsetsatellite.catalyst.core.util.recipe.RecipeSymbol;
 
 public abstract class RecipeEntrySI<I,O,D> extends RecipeEntryBase<I,O,D> {
 

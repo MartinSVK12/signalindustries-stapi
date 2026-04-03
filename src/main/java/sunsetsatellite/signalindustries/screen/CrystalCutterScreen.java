@@ -16,6 +16,8 @@ import sunsetsatellite.signalindustries.block.entity.base.FluidItemContainerBloc
 import sunsetsatellite.signalindustries.mp.packet.RecipeIdChangePacket;
 import sunsetsatellite.signalindustries.screen.base.FluidIOScreen;
 import sunsetsatellite.signalindustries.screen.base.ItemIOScreen;
+import sunsetsatellite.signalindustries.screen.base.VisualFluidIOScreen;
+import sunsetsatellite.signalindustries.screen.base.VisualItemIOScreen;
 import sunsetsatellite.signalindustries.screen.handler.AlloySmelterScreenHandler;
 import sunsetsatellite.signalindustries.screen.handler.CrystalCutterScreenHandler;
 
@@ -76,9 +78,9 @@ public class CrystalCutterScreen extends HandledScreen {
         }
 
         if(button == itemIoButton){
-            minecraft.setScreen(new ItemIOScreen(minecraft.player, container, this, tile));
+            minecraft.setScreen(new VisualItemIOScreen(minecraft.player, handler, this, tile));
         } else if(button == fluidIoButton){
-            minecraft.setScreen(new FluidIOScreen(minecraft.player, container, this, tile));
+            minecraft.setScreen(new VisualFluidIOScreen(minecraft.player, handler, this, tile));
         }
         super.buttonClicked(button);
     }

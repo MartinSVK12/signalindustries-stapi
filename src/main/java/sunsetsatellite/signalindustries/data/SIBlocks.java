@@ -8,6 +8,7 @@ import net.modificationstation.stationapi.api.client.event.block.entity.BlockEnt
 import net.modificationstation.stationapi.api.event.block.entity.BlockEntityRegisterEvent;
 import net.modificationstation.stationapi.api.event.registry.BlockItemRegistryEvent;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
+import net.modificationstation.stationapi.api.template.block.TemplateNetherPortalBlock;
 import sunsetsatellite.signalindustries.block.*;
 import sunsetsatellite.signalindustries.block.base.ConnectedTextureBlock;
 import sunsetsatellite.signalindustries.block.base.SIBlock;
@@ -18,6 +19,7 @@ import sunsetsatellite.signalindustries.block.ore.DilithiumOreBlock;
 import sunsetsatellite.signalindustries.block.ore.DimensionalShardOreBlock;
 import sunsetsatellite.signalindustries.block.ore.MeteoriteIronOreBlock;
 import sunsetsatellite.signalindustries.block.ore.SignaliteOreBlock;
+import sunsetsatellite.signalindustries.render.RenderFluidInBlock;
 import sunsetsatellite.signalindustries.util.MachineTextures;
 import sunsetsatellite.signalindustries.util.Tier;
 
@@ -53,6 +55,8 @@ public class SIBlocks {
     public static Block glowingObsidian;
     public static Block realityFabric;
     public static Block rootedFabric;
+    public static Block dilithiumCrystalBlock;
+    public static Block ashenTreeLog;
 
     public static Block basicCasing;
     public static Block reinforcedCasing;
@@ -70,14 +74,25 @@ public class SIBlocks {
     public static Block prototypeEnergyCell;
 
     public static Block prototypeCrusher;
+    public static Block basicCrusher;
+    public static Block reinforcedCrusher;
 
     public static Block prototypeAlloySmelter;
+    public static Block basicAlloySmelter;
+    public static Block reinforcedAlloySmelter;
 
     public static Block prototypePlateFormer;
+    public static Block basicPlateFormer;
+    public static Block reinforcedPlateFormer;
 
     public static Block prototypeCrystalCutter;
+    public static Block basicCrystalCutter;
+    public static Block reinforcedCrystalCutter;
 
     public static Block prototypeExtractor;
+    public static Block basicExtractor;
+
+    public static Block eternityPortal;
 
     @EventListener
     public static void registerBlocks(BlockRegistryEvent event){
@@ -160,6 +175,18 @@ public class SIBlocks {
                         .withDefaultTexture("rooted_fabric"),
                 50, 50000, Material.STONE, Block.STONE_SOUND_GROUP);
 
+        dilithiumCrystalBlock = basicBlock(new DilithiumCrystalBlock("dilithium_crystal_block"), "dilithiumCrystalBlock",
+                new MachineTextures()
+                        .withDefaultTexture("dilithium_crystal_block")
+        ).setLuminance(1).setHardness(20).setResistance(1000).setSoundGroup(Block.GLASS_SOUND_GROUP);
+
+        ashenTreeLog = basicBlock(new AshenTreeLogBlock("ashen_tree_log"),"ashenTreeLog",new MachineTextures()
+                .withDefaultTexture("eternal_tree_log")
+                .withDefaultTopBottomTextures("eternal_tree_log_top_empty")
+                .withActiveTexture("eternal_tree_log")
+                .withActiveTopBottomTextures("eternal_tree_log_top")
+        );
+
         meteorite = simpleBlock("meteorite", "meteorite",
                 new MachineTextures()
                         .withDefaultTexture("meteorite"),
@@ -206,6 +233,28 @@ public class SIBlocks {
                         .withOverbrightTopTexture("crusher_overlay")
         );
 
+        basicCrusher = customBlock(new CrusherBlock("basic_crusher", Material.STONE, Tier.BASIC),
+                "basic.crusher",
+                Tier.BASIC,
+                new MachineTextures(Tier.BASIC)
+                        .withDefaultTopTexture("crusher_basic_top_inactive")
+                        .withDefaultNorthTexture("crusher_basic_side")
+                        .withActiveTopTexture("crusher_basic_top_active")
+                        .withActiveNorthTexture("crusher_basic_side")
+                        .withOverbrightTopTexture("crusher_overlay")
+        );
+
+        reinforcedCrusher = customBlock(new CrusherBlock("reinforced_crusher", Material.STONE, Tier.REINFORCED),
+                "reinforced.crusher",
+                Tier.REINFORCED,
+                new MachineTextures(Tier.REINFORCED)
+                        .withDefaultTopTexture("crusher_reinforced_top_inactive")
+                        .withDefaultNorthTexture("crusher_reinforced_side")
+                        .withActiveTopTexture("crusher_reinforced_top_active")
+                        .withActiveNorthTexture("crusher_reinforced_side")
+                        .withOverbrightTopTexture("crusher_overlay")
+        );
+
         prototypeAlloySmelter = customBlock(new AlloySmelterBlock("prototype_alloy_smelter", Material.STONE, Tier.PROTOTYPE),
                 "prototype.alloySmelter",
                 Tier.PROTOTYPE,
@@ -213,6 +262,24 @@ public class SIBlocks {
                         .withDefaultNorthTexture("alloy_smelter_prototype_inactive")
                         .withActiveNorthTexture("alloy_smelter_prototype_active")
                         .withOverbrightNorthTexture("alloy_smelter_overlay")
+        );
+
+        basicAlloySmelter = customBlock(new AlloySmelterBlock("basic_alloy_smelter", Material.METAL, Tier.BASIC),
+                "basic.alloySmelter",
+                Tier.BASIC,
+                new MachineTextures(Tier.BASIC)
+                        .withDefaultNorthTexture("alloy_smelter_basic_inactive")
+                        .withActiveNorthTexture("alloy_smelter_basic_active")
+                        .withOverbrightNorthTexture("alloy_smelter_overlay")
+        );
+
+        reinforcedAlloySmelter = customBlock(new AlloySmelterBlock("reinforced_alloy_smelter", Material.METAL, Tier.REINFORCED),
+                "reinforced.alloySmelter",
+                Tier.REINFORCED,
+                new MachineTextures(Tier.REINFORCED)
+                        .withDefaultNorthTexture("alloy_smelter_reinforced_inactive")
+                        .withActiveNorthTexture("alloy_smelter_reinforced_active")
+                        .withOverbrightNorthTexture("alloy_smelter_reinforced_overlay")
         );
 
         prototypePlateFormer = customBlock(new PlateFormerBlock("prototype_plate_former", Material.STONE, Tier.PROTOTYPE),
@@ -224,6 +291,24 @@ public class SIBlocks {
                         .withOverbrightNorthTexture("plate_former_overlay")
         );
 
+        basicPlateFormer = customBlock(new PlateFormerBlock("basic_plate_former", Material.METAL, Tier.BASIC),
+                "basic.plateFormer",
+                Tier.BASIC,
+                new MachineTextures(Tier.BASIC)
+                        .withDefaultNorthTexture("plate_former_basic_inactive")
+                        .withActiveNorthTexture("plate_former_basic_active")
+                        .withOverbrightNorthTexture("plate_former_overlay")
+        );
+
+        reinforcedPlateFormer = customBlock(new PlateFormerBlock("reinforced_plate_former", Material.METAL, Tier.REINFORCED),
+                "reinforced.plateFormer",
+                Tier.REINFORCED,
+                new MachineTextures(Tier.REINFORCED)
+                        .withDefaultNorthTexture("plate_former_reinforced_inactive")
+                        .withActiveNorthTexture("plate_former_reinforced_active")
+                        .withOverbrightNorthTexture("plate_former_overlay")
+        );
+
         prototypeCrystalCutter = customBlock(new CrystalCutterBlock("prototype_crystal_cutter", Material.STONE, Tier.PROTOTYPE),
                 "prototype.crystalCutter",
                 Tier.PROTOTYPE,
@@ -231,6 +316,24 @@ public class SIBlocks {
                         .withDefaultNorthTexture("crystal_cutter_prototype_inactive")
                         .withActiveNorthTexture("crystal_cutter_prototype_active")
                         .withOverbrightNorthTexture("cutter_overlay")
+        );
+
+        basicCrystalCutter = customBlock(new CrystalCutterBlock("basic_crystal_cutter", Material.METAL, Tier.BASIC),
+                "basic.crystalCutter",
+                Tier.BASIC,
+                new MachineTextures(Tier.BASIC)
+                        .withDefaultNorthTexture("crystal_cutter_basic_inactive")
+                        .withActiveNorthTexture("crystal_cutter_basic_active")
+                        .withOverbrightNorthTexture("cutter_overlay")
+        );
+
+        reinforcedCrystalCutter = customBlock(new CrystalCutterBlock("reinforced_crystal_cutter", Material.METAL, Tier.REINFORCED),
+                "reinforced.crystalCutter",
+                Tier.REINFORCED,
+                new MachineTextures(Tier.REINFORCED)
+                        .withDefaultNorthTexture("crystal_cutter_reinforced_inactive")
+                        .withActiveNorthTexture("crystal_cutter_reinforced_active")
+                        .withOverbrightNorthTexture("reinforced_cutter_overlay")
         );
 
         prototypeExtractor = customBlock(new ExtractorBlock("prototype_extractor", Material.STONE, Tier.PROTOTYPE),
@@ -310,6 +413,8 @@ public class SIBlocks {
                 new MachineTextures()
                         .withDefaultTexture("awakened_casing_2_0")
         );
+
+        eternityPortal = new EternityPortalBlock("eternity_portal").setTranslationKey(NAMESPACE, "eternityPortal");
         //energyFlowing = new TemplateFlowingLiquidBlock(NAMESPACE.id("energy_flowing"),Material.WATER).setTranslationKey(NAMESPACE, "signalumEnergy.flowing");
         //energyStill = new TemplateStillLiquidBlock(NAMESPACE.id("energy_still"),Material.WATER).setTranslationKey(NAMESPACE, "signalumEnergy.still");
 
@@ -338,6 +443,12 @@ public class SIBlocks {
     public static Block simpleBlock(Block block, String lang, MachineTextures textures){
         BlockSoundGroup sound = Block.STONE_SOUND_GROUP;
         block.setHardness(1).setResistance(3).setSoundGroup(sound).setTranslationKey(NAMESPACE, lang);
+        blockTextures.put(block, textures);
+        return block;
+    }
+
+    public static Block basicBlock(Block block, String lang, MachineTextures textures){
+        block.setTranslationKey(NAMESPACE, lang);
         blockTextures.put(block, textures);
         return block;
     }
@@ -383,7 +494,7 @@ public class SIBlocks {
 
     @EventListener
     public static void registerBlockEntityRenderers(BlockEntityRendererRegisterEvent event){
-        //event.renderers.put(FluidTankBlockEntity.class, new RenderFluidInBlock());
+        event.renderers.put(FluidTankBlockEntity.class, new RenderFluidInBlock());
     }
 
     @EventListener

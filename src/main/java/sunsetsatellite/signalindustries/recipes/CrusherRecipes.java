@@ -10,7 +10,7 @@ import sunsetsatellite.signalindustries.recipes.base.MachineRecipesBase;
 import sunsetsatellite.signalindustries.recipes.entry.RecipeEntryCrusher;
 import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntryMachine;
 import sunsetsatellite.signalindustries.util.RecipeProperties;
-import sunsetsatellite.signalindustries.util.RecipeSymbol;
+import sunsetsatellite.catalyst.core.util.recipe.RecipeSymbol;
 import sunsetsatellite.signalindustries.util.Tier;
 
 public class CrusherRecipes implements MachineRecipesBase<RecipeGroup<RecipeEntryMachine>> {

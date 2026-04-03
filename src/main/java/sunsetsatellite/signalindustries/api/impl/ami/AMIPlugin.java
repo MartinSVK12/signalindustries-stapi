@@ -1,12 +1,8 @@
 package sunsetsatellite.signalindustries.api.impl.ami;
 
 import net.glasslauncher.mods.alwaysmoreitems.api.*;
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.modificationstation.stationapi.api.util.Identifier;
-import sunsetsatellite.catalyst.Catalyst;
-import sunsetsatellite.catalyst.CatalystMultipart;
 import sunsetsatellite.signalindustries.api.impl.ami.category.*;
 import sunsetsatellite.signalindustries.api.impl.ami.handler.*;
 import sunsetsatellite.signalindustries.data.SIRecipes;

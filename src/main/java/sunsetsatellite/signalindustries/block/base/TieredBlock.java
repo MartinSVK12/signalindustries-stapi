@@ -1,5 +1,7 @@
 package sunsetsatellite.signalindustries.block.base;
 
+import net.glasslauncher.mods.alwaysmoreitems.api.Rarity;
+import net.glasslauncher.mods.alwaysmoreitems.api.RarityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.modificationstation.stationapi.api.client.item.CustomTooltipProvider;
@@ -8,8 +10,11 @@ import org.jetbrains.annotations.NotNull;
 import sunsetsatellite.catalyst.core.util.model.LayeredCubeModel;
 import sunsetsatellite.signalindustries.interfaces.Tiered;
 import sunsetsatellite.signalindustries.util.Tier;
+import sunsetsatellite.signalindustries.util.TierRarity;
 
-public class TieredBlock extends SIBlock implements Tiered, LayeredCubeModel, CustomTooltipProvider {
+import java.util.Random;
+
+public class TieredBlock extends SIBlock implements Tiered, LayeredCubeModel, CustomTooltipProvider, RarityProvider {
     public final Tier tier;
 
     public TieredBlock(String identifier, Material material, Tier tier) {
@@ -28,4 +33,8 @@ public class TieredBlock extends SIBlock implements Tiered, LayeredCubeModel, Cu
     }
 
 
+    @Override
+    public Rarity getRarity(ItemStack itemStack) {
+        return TierRarity.values()[getTier().ordinal()].getRarity();
+    }
 }

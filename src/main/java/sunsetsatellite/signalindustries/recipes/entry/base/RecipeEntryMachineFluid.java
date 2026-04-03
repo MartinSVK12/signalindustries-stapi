@@ -3,7 +3,7 @@ package sunsetsatellite.signalindustries.recipes.entry.base;
 import net.danygames2014.nyalib.fluid.FluidStack;
 import net.minecraft.item.ItemStack;
 import sunsetsatellite.signalindustries.util.RecipeProperties;
-import sunsetsatellite.signalindustries.util.RecipeSymbol;
+import sunsetsatellite.catalyst.core.util.recipe.RecipeSymbol;
 
 import java.util.HashMap;
 import java.util.List;

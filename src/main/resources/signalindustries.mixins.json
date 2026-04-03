@@ -5,14 +5,15 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AMITooltipSystemMixin",
-    "BucketItemMixin",
-    "LiquidBlockMixin",
+    "FogRendererImplMixin",
     "OverworldChunkGeneratorMixin",
-    "TooltipMixin"
+    "TooltipMixin",
+    "WorldMixin"
   ],
   "server": [
   ],
   "client": [
+    "WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

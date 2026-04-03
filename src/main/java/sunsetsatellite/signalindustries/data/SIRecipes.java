@@ -12,6 +12,8 @@ import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntryMachineFlu
 
 import java.util.List;
 
+import static sunsetsatellite.signalindustries.data.SIBlocks.*;
+
 public class SIRecipes {
 
     public static RecipeNamespaceSI SIGNAL_INDUSTRIES;
@@ -29,11 +31,11 @@ public class SIRecipes {
 
             SIGNAL_INDUSTRIES = new RecipeNamespaceSI();
 
-            CRUSHER = new RecipeGroupSI<>(List.of(new ItemStack(SIBlocks.prototypeCrusher)));
-            ALLOY_SMELTER = new RecipeGroupSI<>(List.of(new ItemStack(SIBlocks.prototypeAlloySmelter)));
-            PLATE_FORMER = new RecipeGroupSI<>(List.of(new ItemStack(SIBlocks.prototypePlateFormer)));
-            CRYSTAL_CUTTER = new RecipeGroupSI<>(List.of(new ItemStack(SIBlocks.prototypeCrystalCutter)));
-            EXTRACTOR = new RecipeGroupSI<>(List.of(new ItemStack(SIBlocks.prototypeExtractor)));
+            CRUSHER = new RecipeGroupSI<>(List.of(new ItemStack(prototypeCrusher),new ItemStack(basicCrusher),new ItemStack(reinforcedCrusher)));
+            ALLOY_SMELTER = new RecipeGroupSI<>(List.of(new ItemStack(prototypeAlloySmelter), new ItemStack(basicAlloySmelter), new ItemStack(reinforcedAlloySmelter)));
+            PLATE_FORMER = new RecipeGroupSI<>(List.of(new ItemStack(prototypePlateFormer), new ItemStack(basicPlateFormer), new ItemStack(reinforcedPlateFormer)));
+            CRYSTAL_CUTTER = new RecipeGroupSI<>(List.of(new ItemStack(prototypeCrystalCutter), new ItemStack(basicCrystalCutter), new ItemStack(reinforcedCrystalCutter)));
+            EXTRACTOR = new RecipeGroupSI<>(List.of(new ItemStack(prototypeExtractor)));
 
             new CrusherRecipes().addRecipes(CRUSHER);
             new AlloySmelterRecipes().addRecipes(ALLOY_SMELTER);

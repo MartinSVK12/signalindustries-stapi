@@ -4,7 +4,7 @@ import net.danygames2014.nyalib.fluid.FluidStack;
 import net.minecraft.item.ItemStack;
 import sunsetsatellite.catalyst.core.util.recipe.RecipeGroup;
 import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntrySI;
-import sunsetsatellite.signalindustries.util.RecipeSymbol;
+import sunsetsatellite.catalyst.core.util.recipe.RecipeSymbol;
 import sunsetsatellite.signalindustries.util.RecipeProperties;
 import sunsetsatellite.signalindustries.util.Tier;
 

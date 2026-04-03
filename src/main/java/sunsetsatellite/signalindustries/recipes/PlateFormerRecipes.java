@@ -1,18 +1,14 @@
 package sunsetsatellite.signalindustries.recipes;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.modificationstation.stationapi.api.item.Items;
 import sunsetsatellite.catalyst.core.util.recipe.RecipeGroup;
-import sunsetsatellite.signalindustries.data.SIBlocks;
 import sunsetsatellite.signalindustries.data.SIItems;
 import sunsetsatellite.signalindustries.recipes.base.MachineRecipesBase;
-import sunsetsatellite.signalindustries.recipes.entry.RecipeEntryCrusher;
 import sunsetsatellite.signalindustries.recipes.entry.RecipeEntryPlateFormer;
 import sunsetsatellite.signalindustries.recipes.entry.base.RecipeEntryMachine;
 import sunsetsatellite.signalindustries.util.RecipeProperties;
-import sunsetsatellite.signalindustries.util.RecipeSymbol;
+import sunsetsatellite.catalyst.core.util.recipe.RecipeSymbol;
 import sunsetsatellite.signalindustries.util.Tier;
 
 public class PlateFormerRecipes implements MachineRecipesBase<RecipeGroup<RecipeEntryMachine>> {
