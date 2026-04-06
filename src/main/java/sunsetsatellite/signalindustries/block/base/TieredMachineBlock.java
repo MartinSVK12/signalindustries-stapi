@@ -22,6 +22,7 @@ import sunsetsatellite.catalyst.core.util.io.InventoryWrapper;
 import sunsetsatellite.catalyst.core.util.io.ItemIO;
 import sunsetsatellite.catalyst.core.util.model.RotatableBlockWithEntity;
 import sunsetsatellite.catalyst.core.util.vector.Vec3i;
+import sunsetsatellite.catalyst.multiblocks.IMultiblock;
 import sunsetsatellite.signalindustries.interfaces.HasIOPreview;
 import sunsetsatellite.signalindustries.interfaces.Tiered;
 import sunsetsatellite.signalindustries.util.ActiveForm;
@@ -80,8 +81,22 @@ public class TieredMachineBlock extends RotatableBlockWithEntity implements Tier
 
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
+        if(player.isSneaking()) return false;
         BlockEntity blockEntity = world.getBlockEntity(x, y, z);
         try {
+            if(blockEntity instanceof IMultiblock multiblock){
+                if(multiblock.getMultiblock() != null){
+                    if(multiblock.getMultiblock().isValid()){
+                        GuiHelper.openGUI(player,NAMESPACE.id(guiId), (Inventory) blockEntity, (ScreenHandler) screenHandlerClass.getDeclaredConstructors()[0].newInstance(player.inventory, blockEntity));
+                    } else {
+                        player.sendMessage("event.signalindustries.invalidMultiblock");
+                        return true;
+                    }
+                } else {
+                    player.sendMessage("event.signalindustries.invalidMultiblock");
+                    return true;
+                }
+            }
             GuiHelper.openGUI(player,NAMESPACE.id(guiId), (Inventory) blockEntity, (ScreenHandler) screenHandlerClass.getDeclaredConstructors()[0].newInstance(player.inventory, blockEntity));
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);

@@ -14,13 +14,17 @@ import sunsetsatellite.signalindustries.block.base.ConnectedTextureBlock;
 import sunsetsatellite.signalindustries.block.base.SIBlock;
 import sunsetsatellite.signalindustries.block.base.TieredBlock;
 import sunsetsatellite.signalindustries.block.entity.*;
+import sunsetsatellite.signalindustries.block.entity.multiblock.InductionSmelterBlockEntity;
 import sunsetsatellite.signalindustries.block.machine.*;
 import sunsetsatellite.signalindustries.block.ore.DilithiumOreBlock;
 import sunsetsatellite.signalindustries.block.ore.DimensionalShardOreBlock;
 import sunsetsatellite.signalindustries.block.ore.MeteoriteIronOreBlock;
 import sunsetsatellite.signalindustries.block.ore.SignaliteOreBlock;
+import sunsetsatellite.signalindustries.render.RenderEncapsulator;
 import sunsetsatellite.signalindustries.render.RenderFluidInBlock;
+import sunsetsatellite.signalindustries.render.RenderMultiblock;
 import sunsetsatellite.signalindustries.util.MachineTextures;
+import sunsetsatellite.signalindustries.util.MultiblockPart;
 import sunsetsatellite.signalindustries.util.Tier;
 
 import java.util.ArrayList;
@@ -51,6 +55,10 @@ public class SIBlocks {
     public static Block cobblestoneBricks;
     public static Block crystalAlloyBricks;
     public static Block reinforcedCrystalAlloyBricks;
+
+    public static Block signalumAlloyCoil;
+    public static Block dilithiumCoil;
+    public static Block awakenedAlloyCoil;
 
     public static Block glowingObsidian;
     public static Block realityFabric;
@@ -91,6 +99,26 @@ public class SIBlocks {
 
     public static Block prototypeExtractor;
     public static Block basicExtractor;
+
+    public static Block basicFluidInputHatch;
+    public static Block basicFluidOutputHatch;
+    public static Block basicItemInputBus;
+    public static Block basicItemOutputBus;
+
+    public static Block reinforcedFluidInputHatch;
+    public static Block reinforcedFluidOutputHatch;
+    public static Block reinforcedItemInputBus;
+    public static Block reinforcedItemOutputBus;
+
+    public static Block basicEnergyConnector;
+    public static Block awakenedEnergyConnector;
+    public static Block reinforcedEnergyConnector;
+
+    public static Block basicInductionSmelter;
+
+    public static Block basicMarker;
+    public static Block reinforcedBuilder;
+    public static Block spatialEncapsulator;
 
     public static Block eternityPortal;
 
@@ -159,6 +187,37 @@ public class SIBlocks {
                 new MachineTextures()
                         .withDefaultTexture("reinforced_alloy_bricks"),
                 1, 3, Material.STONE, Block.STONE_SOUND_GROUP);
+
+        signalumAlloyCoil = simpleBlock(new CoilBlock("signalite_alloy_coil", Material.METAL), "signalumAlloyCoil", Block.METAL_SOUND_GROUP,
+                new MachineTextures()
+                        .withDefaultSouthTexture("signalum_alloy_coil_top")
+                        .withDefaultNorthTexture("signalum_alloy_coil_top")
+                        .withDefaultEastTexture("signalum_alloy_coil_2")
+                        .withDefaultWestTexture("signalum_alloy_coil_2")
+                        .withDefaultTopBottomTextures("signalum_alloy_coil"));
+
+        dilithiumCoil = simpleBlock(new CoilBlock("dilithium_coil", Material.METAL), "dilithiumCoil", Block.METAL_SOUND_GROUP,
+                new MachineTextures()
+                        .withDefaultNorthTexture("dilithium_coil_top")
+                        .withDefaultSouthTexture("dilithium_coil_top")
+                        .withDefaultEastTexture("dilithium_coil")
+                        .withDefaultWestTexture("dilithium_coil")
+                        .withDefaultTopBottomTextures("dilithium_coil")
+        );
+
+        awakenedAlloyCoil = simpleBlock(new CoilBlock("awakened_alloy_coil", Material.METAL), "awakenedAlloyCoil", Block.METAL_SOUND_GROUP,
+                new MachineTextures()
+                        .withDefaultSouthTexture("awakened_alloy_coil_top")
+                        .withDefaultNorthTexture("awakened_alloy_coil_top")
+                        .withDefaultEastTexture("awakened_alloy_coil_2")
+                        .withDefaultTopBottomTextures("awakened_alloy_coil")
+                        .withDefaultWestTexture("awakened_alloy_coil_2")
+                );
+
+        basicMarker = simpleBlock("basic_marker", "basic.marker",
+                new MachineTextures()
+                        .withDefaultTexture("basic_marker"),
+                1, 3, Material.METAL, Block.METAL_SOUND_GROUP);
 
         glowingObsidian = simpleBlock("glowing_obsidian", "glowingObsidian",
                 new MachineTextures()
@@ -345,6 +404,106 @@ public class SIBlocks {
                         .withOverbrightSideTextures("extractor_overlay")
         );
 
+        basicItemInputBus = customBlock(new ItemBusBlock("basic_item_input_bus", Material.METAL, Tier.BASIC, MultiblockPart.Type.ITEM, MultiblockPart.IO.INPUT),
+                "basic.itemInputBus",
+                Tier.BASIC,
+                new MachineTextures(Tier.BASIC)
+                        .withDefaultTexture("basic_input_bus")
+        );
+
+        basicItemOutputBus = customBlock(new ItemBusBlock("basic_item_output_bus", Material.METAL, Tier.BASIC, MultiblockPart.Type.ITEM, MultiblockPart.IO.OUTPUT),
+                "basic.itemOutputBus",
+                Tier.BASIC,
+                new MachineTextures(Tier.BASIC)
+                        .withDefaultTexture("basic_output_bus")
+        );
+
+
+        basicFluidInputHatch = customBlock(new FluidHatchBlock("basic_fluid_input_hatch", Material.METAL, Tier.BASIC, MultiblockPart.Type.FLUID, MultiblockPart.IO.INPUT),
+                "basic.fluidInputHatch",
+                Tier.BASIC,
+                new MachineTextures(Tier.BASIC)
+                        .withDefaultTexture("basic_fluid_input_hatch")
+        );
+
+        basicFluidOutputHatch = customBlock(new FluidHatchBlock("basic_fluid_output_hatch", Material.METAL, Tier.BASIC, MultiblockPart.Type.FLUID, MultiblockPart.IO.OUTPUT),
+                "basic.fluidOutputHatch",
+                Tier.BASIC,
+                new MachineTextures(Tier.BASIC)
+                        .withDefaultTexture("basic_fluid_output_hatch")
+        );
+
+        reinforcedItemInputBus = customBlock(new ItemBusBlock("reinforced_item_input_bus", Material.METAL, Tier.REINFORCED, MultiblockPart.Type.ITEM, MultiblockPart.IO.INPUT),
+                "reinforced.itemInputBus",
+                Tier.REINFORCED,
+                new MachineTextures(Tier.REINFORCED)
+                        .withDefaultTexture("reinforced_input_bus")
+        );
+
+        reinforcedItemOutputBus = customBlock(new ItemBusBlock("reinforced_item_output_bus", Material.METAL, Tier.REINFORCED, MultiblockPart.Type.ITEM, MultiblockPart.IO.OUTPUT),
+                "reinforced.itemOutputBus",
+                Tier.REINFORCED,
+                new MachineTextures(Tier.REINFORCED)
+                        .withDefaultTexture("reinforced_output_bus")
+        );
+
+
+        reinforcedFluidInputHatch = customBlock(new FluidHatchBlock("reinforced_fluid_input_hatch", Material.METAL, Tier.REINFORCED, MultiblockPart.Type.FLUID, MultiblockPart.IO.INPUT),
+                "reinforced.fluidInputHatch",
+                Tier.REINFORCED,
+                new MachineTextures(Tier.REINFORCED)
+                        .withDefaultTexture("reinforced_fluid_input_hatch")
+        );
+
+        reinforcedFluidOutputHatch = customBlock(new FluidHatchBlock("reinforced_fluid_output_hatch", Material.METAL, Tier.REINFORCED, MultiblockPart.Type.FLUID, MultiblockPart.IO.OUTPUT),
+                "reinforced.fluidOutputHatch",
+                Tier.REINFORCED,
+                new MachineTextures(Tier.REINFORCED)
+                        .withDefaultTexture("reinforced_fluid_output_hatch")
+        );
+
+
+        basicEnergyConnector = customBlock(new EnergyConnectorBlock("basic_energy_connector", Material.METAL, Tier.BASIC, MultiblockPart.Type.ENERGY, MultiblockPart.IO.N_A),
+                "basic.energyConnector",
+                Tier.BASIC,
+                new MachineTextures(Tier.BASIC)
+                        .withDefaultTexture("basic_energy_connector")
+        );
+
+        reinforcedEnergyConnector = customBlock(new EnergyConnectorBlock("reinforced_energy_connector", Material.METAL, Tier.REINFORCED, MultiblockPart.Type.ENERGY, MultiblockPart.IO.N_A),
+                "reinforced.energyConnector",
+                Tier.REINFORCED,
+                new MachineTextures(Tier.REINFORCED)
+                        .withDefaultTexture("reinforced_energy_connector")
+        );
+
+        awakenedEnergyConnector = customBlock(new EnergyConnectorBlock("awakened_energy_connector", Material.METAL, Tier.AWAKENED, MultiblockPart.Type.ENERGY, MultiblockPart.IO.N_A),
+                "awakened.energyConnector",
+                Tier.AWAKENED,
+                new MachineTextures(Tier.AWAKENED)
+                        .withDefaultTexture("awakened_energy_connector")
+        );
+
+        basicInductionSmelter = customBlock(new InductionSmelterBlock("basic_induction_smelter", Material.METAL, Tier.BASIC),
+                "basic.inductionSmelter",
+                Tier.BASIC,
+                new MachineTextures(Tier.BASIC)
+                        .withDefaultTopTexture("basic_induction_smelter_top_inactive")
+                        .withDefaultNorthTexture("basic_induction_smelter_front_inactive")
+                        .withActiveTopTexture("basic_induction_smelter_top_active")
+                        .withActiveNorthTexture("basic_induction_smelter_front_active")
+                        .withOverbrightTopTexture("induction_smelter_top_overlay")
+                        .withOverbrightNorthTexture("induction_smelter_front_overlay")
+        );
+
+        spatialEncapsulator = customBlock(new EncapsulatorBlock("awakened_encapsulator", Material.METAL, Tier.AWAKENED),
+                "awakened.encapsulator",
+                Tier.AWAKENED,
+                new MachineTextures(Tier.AWAKENED)
+                        .withDefaultNorthTexture("awakened_encapsulator_front_inactive")
+                        .withActiveNorthTexture("awakened_encapsulator_front_active")
+        );
+
         basicCasing = customBlock(new CasingBlock("basic_casing", Material.METAL, Tier.BASIC),
                 "basic.casing",
                 Tier.BASIC,
@@ -442,6 +601,10 @@ public class SIBlocks {
 
     public static Block simpleBlock(Block block, String lang, MachineTextures textures){
         BlockSoundGroup sound = Block.STONE_SOUND_GROUP;
+        return simpleBlock(block, lang, sound, textures);
+    }
+
+    public static Block simpleBlock(Block block, String lang, BlockSoundGroup sound, MachineTextures textures){
         block.setHardness(1).setResistance(3).setSoundGroup(sound).setTranslationKey(NAMESPACE, lang);
         blockTextures.put(block, textures);
         return block;
@@ -490,11 +653,18 @@ public class SIBlocks {
         event.register(PlateFormerBlockEntity.class, NAMESPACE.id("plate_former").toString());
         event.register(CrystalCutterBlockEntity.class, NAMESPACE.id("crystal_cutter").toString());
         event.register(ExtractorBlockEntity.class, NAMESPACE.id("extractor").toString());
+        event.register(ItemBusBlockEntity.class, NAMESPACE.id("item_bus").toString());
+        event.register(FluidHatchBlockEntity.class, NAMESPACE.id("fluid_hatch").toString());
+        event.register(EnergyConnectorBlockEntity.class, NAMESPACE.id("energy_connector").toString());
+        event.register(InductionSmelterBlockEntity.class, NAMESPACE.id("induction_smelter").toString());
+        event.register(EncapsulatorBlockEntity.class, NAMESPACE.id("spatial_encapsulator").toString());
     }
 
     @EventListener
     public static void registerBlockEntityRenderers(BlockEntityRendererRegisterEvent event){
         event.renderers.put(FluidTankBlockEntity.class, new RenderFluidInBlock());
+        event.renderers.put(EncapsulatorBlockEntity.class, new RenderEncapsulator());
+        event.renderers.put(InductionSmelterBlockEntity.class, new RenderMultiblock());
     }
 
     @EventListener

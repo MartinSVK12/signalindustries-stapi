@@ -4,6 +4,8 @@ import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
+import sunsetsatellite.signalindustries.item.BlueprintItem;
+import sunsetsatellite.signalindustries.item.PositionChipItem;
 import sunsetsatellite.signalindustries.item.SignaliteCrystalBatteryItem;
 import sunsetsatellite.signalindustries.item.attachment.BackpackAttachmentItem;
 import sunsetsatellite.signalindustries.item.attachment.base.AttachmentItem;
@@ -80,7 +82,7 @@ public class SIItems {
 
     // Chips (Components)
     public static Item blankChip;
-    public static Item positionMemoryChip;
+    public static Item positionChip;
     public static Item precisionControlChip;
     public static Item unlimitedChip;
 
@@ -102,6 +104,10 @@ public class SIItems {
     // Backpack
     public static AttachmentItem basicBackpack;
     public static AttachmentItem reinforcedBackpack;
+
+    // Tools
+    public static Item blueprint;
+    public static Item goldprint;
 
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
@@ -169,12 +175,15 @@ public class SIItems {
         krowka = simpleItem("krowka", "krowka", "krowka");
 
         blankChip = simpleItem("blank_chip", "romChip.blank", "blank_chip");
-        positionMemoryChip = simpleItem("position_memory_chip", "romChip.position", "position_chip");
+        positionChip = customItem(new PositionChipItem(NAMESPACE.id("position_chip")).setMaxCount(1), "romChip.position", "position_chip");
         precisionControlChip = simpleItem("precision_control_chip", "romChip.precision", "precision_control_chip");
         unlimitedChip = simpleItem("unlimited_chip", "romChip.unlimited", "unlimited_chip");
 
         basicBackpack = (AttachmentItem) customItem(new BackpackAttachmentItem("basic_backpack", List.of(AttachmentPoint.CORE_BACK), Tier.BASIC).setMaxCount(1),"basic.attachment.backpack", "basic_backpack");
         reinforcedBackpack = (AttachmentItem) customItem(new BackpackAttachmentItem("reinforced_backpack", List.of(AttachmentPoint.CORE_BACK), Tier.REINFORCED).setMaxCount(1),"reinforced.attachment.backpack", "reinforced_backpack");
+
+        blueprint = customItem(new BlueprintItem(NAMESPACE.id("blueprint")).setMaxCount(1), "blueprint", "blueprint");
+        goldprint = customItem(new BlueprintItem(NAMESPACE.id("goldprint")).setMaxCount(1), "goldprint", "goldprint"); //todo: implement
     }
 
     public Item simpleItem(String name, String lang, String texture) {

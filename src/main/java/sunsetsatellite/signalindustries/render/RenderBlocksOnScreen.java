@@ -21,7 +21,6 @@ import java.util.Random;
 public class RenderBlocksOnScreen {
 
     public InventoryBlockView blockView;
-    private BlockRenderManager renderManager;
 
     public void drawBlock(List<BlockInstance> blocks, Tessellator tessellator, World world, double i, double j, double k, float alpha) {
         if(blockView == null) {
@@ -32,7 +31,7 @@ public class RenderBlocksOnScreen {
         }
 
         //if(renderManager == null)
-        renderManager = new BlockRenderManager(blockView);
+        BlockRenderManager renderManager = new BlockRenderManager(blockView);
         //renderManager.skipFaceCulling = true;
         for (BlockInstance block : blocks) {
             GL11.glPushMatrix();
@@ -60,8 +59,6 @@ public class RenderBlocksOnScreen {
         Tessellator.INSTANCE.setOffset(-0.5f,-0.5f,-0.5f);
         Tessellator.INSTANCE.color(1,1,1,alpha);
         ((GlobalAlphaSwitch) Tessellator.INSTANCE).setGlobalAlpha(alpha);
-        //Tessellator.INSTANCE.disableColor();
-        //RendererAccess.INSTANCE.getRenderer().bakedModelRenderer().renderBlock(block.getDefaultState(), new BlockPos(0,0,0), blockView, true, new Random());
         renderManager.render(block, pos.x, pos.y, pos.z);
         ((GlobalAlphaSwitch) Tessellator.INSTANCE).setGlobalAlpha(1);
         Tessellator.INSTANCE.setOffset(0,0,0);

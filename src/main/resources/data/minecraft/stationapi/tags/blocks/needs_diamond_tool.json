@@ -11,6 +11,18 @@
     "signalindustries:cobblestone_bricks",
     "signalindustries:crystal_alloy_bricks",
     "signalindustries:reinforced_alloy_bricks",
-    "signalindustries:prototype_fluid_tank"
+    "signalindustries:prototype_fluid_tank",
+    "signalindustries:basic_fluid_input_hatch",
+    "signalindustries:reinforced_fluid_input_hatch",
+    "signalindustries:basic_fluid_output_hatch",
+    "signalindustries:reinforced_fluid_output_hatch",
+    "signalindustries:basic_item_input_bus",
+    "signalindustries:reinforced_item_input_bus",
+    "signalindustries:basic_item_output_bus",
+    "signalindustries:reinforced_item_output_bus",
+    "signalindustries:basic_energy_connector",
+    "signalindustries:reinforced_energy_connector",
+    "signalindustries:awakened_energy_connector",
+    "signalindustries:basic_induction_smelter"
   ]
 }

@@ -48,7 +48,6 @@ tile.@.rawCrystalBlock.desc=A solid block of Raw Signalite Crystals.
 tile.@.awakenedSignalumCrystalBlock.name=Block of Awakened Signalite Crystals
 tile.@.awakenedSignalumCrystalBlock.desc=A meter cubed of unreal energy, you should be glad those crystals contain it all.
 
-
 tile.@.prototype.bricks.name=Cobblestone Bricks
 tile.@.prototype.bricks.desc=Stacked bricks of cobblestone.
 tile.@.basic.bricks.name=Crystal Alloy Bricks
@@ -57,6 +56,13 @@ tile.@.reinforced.bricks.name=Reinforced Crystal Alloy Bricks
 tile.@.reinforced.bricks.desc=Stacked bricks of Reinforced Crystal Alloy ingots.
 tile.@.awakened.bricks.name=Awakened Alloy Bricks
 tile.@.awakened.bricks.desc=Stacked bricks of Awakened Alloy ingots.
+
+tile.@.signalumAlloyCoil.name=Saturated Signalite Alloy Coil
+tile.@.signalumAlloyCoil.desc=A coil of Saturated Signalite Alloy.
+tile.@.dilithiumCoil.name=Dilithium Coil
+tile.@.dilithiumCoil.desc=A coil of Dilithium.
+tile.@.awakenedAlloyCoil.name=Awakened Alloy Coil
+tile.@.awakenedAlloyCoil.desc=A coil of Awakened Alloy.
 
 tile.@.glowingObsidian.name=Glowing Obsidian
 tile.@.glowingObsidian.desc=Obsidian infused with ember coal.
@@ -125,6 +131,57 @@ tile.@.reinforced.extractor.name=Reinforced Signalite Extraction Manifold
 tile.@.reinforced.extractor.desc=Extracts large amounts of <Signaling Energy> from several <Raw Signalite Crystals> at once.
 tile.@.awakened.extractor.name=Awakened Signalite Extraction Facility Controller
 tile.@.awakened.extractor.desc=Will extract all <Signaling Energy> from a huge amount of <Raw Signalite Crystals> all at once with extraordinary efficiency.
+
+tile.@.reinforced.energyConnector.name=Reinforced Energy Connector
+tile.@.reinforced.energyConnector.desc=A dedicated energy hatch for Reinforced-tier multiblocks.
+tile.@.reinforced.fluidInputHatch.name=Reinforced Fluid Input Hatch
+tile.@.reinforced.fluidInputHatch.desc=A dedicated fluid input for Reinforced-tier multiblocks.
+tile.@.reinforced.fluidOutputHatch.name=Reinforced Fluid Output Hatch
+tile.@.reinforced.fluidOutputHatch.desc=A dedicated fluid output for Reinforced-tier multiblocks.
+tile.@.reinforced.itemInputBus.name=Reinforced Item Input Bus
+tile.@.reinforced.itemInputBus.desc=A dedicated item input for Reinforced-tier multiblocks.
+tile.@.reinforced.itemOutputBus.name=Reinforced Item Output Bus
+tile.@.reinforced.itemOutputBus.desc=A dedicated item output for Reinforced-tier multiblocks.
+
+tile.@.awakened.energyConnector.name=Awakened Energy Connector
+tile.@.awakened.energyConnector.desc=A dedicated energy hatch for Awakened-tier multiblocks.
+tile.@.awakened.fluidInputHatch.name=Awakened Fluid Input Hatch
+tile.@.awakened.fluidInputHatch.desc=A dedicated fluid input for Awakened-tier multiblocks.
+tile.@.awakened.fluidOutputHatch.name=Awakened Fluid Output Hatch
+tile.@.awakened.fluidOutputHatch.desc=A dedicated fluid output for Awakened-tier multiblocks.
+tile.@.awakened.itemInputBus.name=Awakened Item Input Bus
+tile.@.awakened.itemInputBus.desc=A dedicated item input for Awakened-tier multiblocks.
+tile.@.awakened.itemOutputBus.name=Awakened Item Output Bus
+tile.@.awakened.itemOutputBus.desc=A dedicated item output for Awakened-tier multiblocks.
+
+tile.@.basic.energyConnector.name=Basic Energy Connector
+tile.@.basic.energyConnector.desc=A dedicated energy hatch for Basic-tier multiblocks.
+tile.@.basic.fluidInputHatch.name=Basic Fluid Input Hatch
+tile.@.basic.fluidInputHatch.desc=A dedicated fluid input for Basic-tier multiblocks.
+tile.@.basic.fluidOutputHatch.name=Basic Fluid Output Hatch
+tile.@.basic.fluidOutputHatch.desc=A dedicated fluid output for Basic-tier multiblocks.
+tile.@.basic.itemInputBus.name=Basic Item Input Bus
+tile.@.basic.itemInputBus.desc=A dedicated item input for Basic-tier multiblocks.
+tile.@.basic.itemOutputBus.name=Basic Item Output Bus
+tile.@.basic.itemOutputBus.desc=A dedicated item output for Basic-tier multiblocks.
+
+tile.@.basic.marker.name=Basic Marker
+tile.@.basic.marker.desc=Place these at the corners of a cuboid shape to define the working area for other machines.
+tile.@.reinforced.builder.name=Reinforced Builder
+tile.@.reinforced.builder.desc=Builds structures according to <Blueprints>.
+tile.@.awakened.builder.name=Awakened Spatial Reconstructor
+tile.@.awakened.builder.desc=Builds more complicated structures according to <Blueprints> or can recreate the space encapsulated in a <Goldprint>.
+tile.@.reinforced.encapsulator.name=Reinforced Structure Scanner
+tile.@.reinforced.encapsulator.desc=Creates a blueprint of an already built custom structure.
+tile.@.awakened.encapsulator.name=Awakened Spatial Encapsulator
+tile.@.awakened.encapsulator.desc=Creates a blueprint of an already built custom structure, can also cut out parts of the world and store them in <Goldprints>.
+
+tile.@.basic.inductionSmelter.name=Basic Induction Smelter
+tile.@.basic.inductionSmelter.desc=Smelts 16 items that a normal furnace can smelt in parallel.
+tile.@.reinforced.inductionSmelter.name=Reinforced Induction Smelter
+tile.@.reinforced.inductionSmelter.desc=Smelts 32 items that a normal furnace can smelt in parallel at higher speed and efficiency.
+tile.@.awakened.inductionSmelter.name=Awakened Quark-Gluon Plasma Melter Controller
+tile.@.awakened.inductionSmelter.desc=Smelts entire stacks at once using the heat of the early universe.
 
 tile.@.basic.casing.name=Basic Casing
 tile.@.basic.casing.desc=Used for Basic-tier and above multiblock machines.
@@ -270,6 +327,11 @@ item.@.clearKey.desc=Both a physical and metaphorical key to more power.
 item.@.saturatedKey.name=Saturated Key
 item.@.saturatedKey.desc=Can open many "doors", but only you can choose which will be actually opened.
 
+item.@.blueprint.name=Blueprint
+item.@.blueprint.desc=Written out instructions on how to build a structure.
+item.@.goldprint.name=Goldprint
+item.@.goldprint.desc=Contains a section of physical space cut out by a <Spatial Encapsulator>.
+
 item.@.coalDust.name=Coal Dust
 item.@.coalDust.desc=Ground up coal.
 item.@.ironDust.name=Iron Dust
@@ -338,3 +400,6 @@ container.@.harness.name=Signalum Power Harness
 container.@.powerSuit.name=Signalum Power Suit
 container.@.abilityModule.name=Application Module
 container.@.awakenedAbilityModule.name=Awakened Application Module
+container.@.encapsulator.name=Spatial Encapsulator
+
+event.@.invalidMultiblock=Multiblock incomplete or invalid!

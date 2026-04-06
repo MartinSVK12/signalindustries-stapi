@@ -30,6 +30,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static net.modificationstation.stationapi.api.state.property.Properties.HORIZONTAL_FACING;
+
 public class FluidItemContainerBlockEntity extends BlockEntity implements FluidHandler, ItemHandler, Inventory, ItemIO, FluidIO {
 
     public FluidStack[] fluidContents = new FluidStack[1];
@@ -619,6 +621,10 @@ public class FluidItemContainerBlockEntity extends BlockEntity implements FluidH
 
     public Vec3i getPosition(){
         return new Vec3i(this.x,this.y,this.z);
+    }
+
+    public Direction getDirection(){
+        return Direction.getDirectionFromSide(world.getBlockState(x,y,z).get(HORIZONTAL_FACING).getId());
     }
 
     @Override

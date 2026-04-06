@@ -6,3 +6,4 @@ accessible field net/minecraft/block/entity/BlockEntity idToClass Ljava/util/Map
 accessible field net/minecraft/block/entity/BlockEntity classToId Ljava/util/Map;
 accessible field net/minecraft/client/render/WorldRenderer blockRenderManager Lnet/minecraft/client/render/block/BlockRenderManager;
 accessible field net/minecraft/client/render/block/BlockRenderManager skipFaceCulling Z
+accessible field net/minecraft/nbt/NbtCompound entries Ljava/util/Map;

@@ -66,6 +66,10 @@ public abstract class TieredMachineBaseBlockEntity extends TieredBlockEntity imp
         yield = 1;
     }
 
+    public int getProgressDuration(int defaultTicks) {
+        return (int) (defaultTicks / speedMultiplier);
+    }
+
     public int getTieredProgressDuration(int defaultTicks){
         return (int) (((float) defaultTicks / (tier.ordinal()+1)) / speedMultiplier);
     }
